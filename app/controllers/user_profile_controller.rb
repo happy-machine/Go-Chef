@@ -7,7 +7,8 @@ class UserProfileController < ApplicationController
           
     def save
         @user=User.find_by(email:params[:user][:email])
-        @user.update_attributes(email: params[:user][:email], bio: params[:user][:bio])
+        p 
+        @user.update_attributes(email: params[:user][:email], bio: params[:user][:bio], avatar: params[:user][:avatar])
         redirect_to ('/')
       end
 

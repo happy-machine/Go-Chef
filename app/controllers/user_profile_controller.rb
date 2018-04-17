@@ -1,8 +1,6 @@
 class UserProfileController < ApplicationController
     
     def show
-        puts "yo" + params[:id]
-        puts params
         @user=User.find(params[:id])
       end
 

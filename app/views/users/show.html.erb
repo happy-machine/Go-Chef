@@ -1,28 +1,26 @@
 <div class="page">
 
-  <button class = "button back">
-    <%= link_to("Back to the chefs", "/" ) %>
-  </button>
-  <br>
+  <div class ="profile_title">
+    <div class ="profile">
+      <% if @user.avatar.file %>
+        <%= image_tag @user.avatar.url%>
+      <% end %>
+    </div>
+    <p class ="title"><%= @user.name %></p>
+    
+    <% if user_signed_in? %>
+      <button class="button edit">
+        <%= link_to(raw("<i class='fa fa-cog'></i>"), user_edit_path(@user.id)) %> 
+      </button>
+    <% end %>
+    <button class = "button back">
+      <%= link_to("Back to the chefs", "/" ) %>
+    </button>
+  <p class = "bio">Bio: <span>
+    <%= @user.bio %>
 
-  <p class ="title"><%= @user.name %></p>
-  <br>
-  <p>Bio:</p>
-  <%= @user.bio %>
-            <button class="button show"><%= link_to "Edit", user_path(@user.id)%> </button>
-  <!--
-  <%= User.attribute_names +  User.reflect_on_all_associations.map {|a| a.columns_hash.to_s } %> 
-  <%= User.columns_hash['email'] %> 
-  -->
-<div
-    <%= @user.name %>
-  <p>
-  <strong>Image:</strong>
-
-  <% if @user.avatar.file %>
-    <%= image_tag @user.avatar.url%>
-  <% end %>
-
-</p>
+  </p>
+  </div>
 </div>
+
 

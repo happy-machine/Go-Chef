@@ -1,2 +1,17 @@
+<div class="page">
 
-Chef name: <%= @user.name %><br>
+  <button class = "button back">
+    <%= link_to("Back to the chefs", "/" ) %>
+  </button>
+  <br>
+
+  <p class ="title"><%= @user.name %></p>
+  <br>
+  <p>Bio:</p>
+  <%= @user.bio %>
+
+  <!--
+  <%= User.attribute_names +  User.reflect_on_all_associations.map {|a| a.columns_hash.to_s } %> 
+  <%= User.columns_hash['email'] %> 
+  -->
+</div>

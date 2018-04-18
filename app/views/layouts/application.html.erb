@@ -6,16 +6,37 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Roboto:400,500" rel="stylesheet">
+
+    <div class="nav-bar">
+      <div class="logo">
+  
+        <%= link_to (image_tag ("gochef_logo.png"), class: 'logo'), "/" %>
+      </div>
+      <!--       
+      <div id="titles" >
+        <h1>o Chef</h1>
+      </div> 
+      -->
+      <div class="nav-links">
+        <% if user_signed_in? %>
+          <button class = "button sign_up">
+            <%= link_to "Join", destroy_user_session_path, method: :delete %>
+          </button>
+        <% else %>
+          <button class = "button sign_in">
+            <%= link_to "sign in", new_user_session_path %>
+          </button>
+          <button class = "button sign_up">
+            <%= link_to "Join", new_user_registration_path %>
+          </button>
+        <% end %>
+      </div>
+    </div>
   </head>
 
   <body>
 
-    <% if user_signed_in? %>
-      <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "sign in", new_user_session_path %>
-      <%= link_to "sign up", new_user_registration_path %>
-    <% end %>
     
 
 

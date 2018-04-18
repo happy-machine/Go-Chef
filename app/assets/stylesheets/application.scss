@@ -69,6 +69,7 @@ body{
 /*  float: left;
 */  display: inline-block;
 }
+
 .button,input[type="submit"]{
   padding: 0 10px 0 10px;
   min-width: 60px;
@@ -126,6 +127,20 @@ body{
 
 }
 .button:hover {opacity: 0.95}
+
+/*.sign-up{
+    .button,input[type="submit"]{
+
+    background-color: $black-button;
+    border-radius: 2px;
+    grid-column: 3;
+    min-width: 90px;
+
+    & a {
+      color: white;
+    }
+    }
+}*/
 
 
 /*
@@ -219,4 +234,11 @@ input[type="submit"]{
     height: 40px!important;
 }
 
+.sign_in.actions {
+    background-color: $blue-button!important;
+  }
+
+.sign_up.actions {
+    background-color: $black-button!important;
+  }
 

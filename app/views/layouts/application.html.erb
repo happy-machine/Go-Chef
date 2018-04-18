@@ -43,5 +43,24 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <div id="gmap" style="width:300px;height:250px;"></div>
+    <!--<script src="maplace.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDMF0SsP0ErqM0s-JNEwO48OeclMQWJRrs&callback=initMap">
+    <script type="text/javascript">
+      $(function() {
+
+  new Maplace({
+    show_markers: false,
+    locations: [{
+        lat: 45.9,
+        lon: 10.9,
+        zoom: 8
+    }]
+}).Load();
+
+});
+
+</script>
   </body>
 </html>

@@ -1,28 +1,10 @@
-<div class="page">
-
-  <button class = "button back">
-    <%= link_to("Back to the chefs", "/" ) %>
-  </button>
-  <br>
-
-  <p class ="title"><%= @user.name %></p>
-  <br>
-  <p>Bio:</p>
-  <%= @user.bio %>
-        <%= image_tag @user.avatar.url(:thumb) %>
-            <button class="button show"><%= link_to "Edit", user_edit_path(@user.id)%> </button>
-  <!--
-  <%= User.attribute_names +  User.reflect_on_all_associations.map {|a| a.columns_hash.to_s } %> 
-  <%= User.columns_hash['email'] %> 
-  -->
-</div>
 <h2>
     Edit Profile</h2>
 <h3>
     <%= @user.name %>
 </h3>
 
-<%= form_for @user, url: '/user', method: 'put'  do |f| %>
+<%= form_for @user, url: '/user_profile', method: 'put'  do |f| %>
     <div class="field">
         <%= f.label :email %>
             <br />
@@ -48,6 +30,3 @@
     </br>
         <%= link_to "Back", :back %>
         
-
-
-

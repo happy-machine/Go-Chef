@@ -117,7 +117,11 @@ body{
   &.back {
     /*background-color: $yellow-material;*/
     float: right;
+    /*margin-left: 150px;*/
     color: $black-button;
+    grid-area: c;
+    /*max-width: 50%;*/
+
   
     & a {
       color: $black-button;
@@ -128,19 +132,7 @@ body{
 }
 .button:hover {opacity: 0.95}
 
-/*.sign-up{
-    .button,input[type="submit"]{
 
-    background-color: $black-button;
-    border-radius: 2px;
-    grid-column: 3;
-    min-width: 90px;
-
-    & a {
-      color: white;
-    }
-    }
-}*/
 
 
 /*
@@ -193,7 +185,7 @@ pages style
   margin-left: 10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
-
+/*
 .form {
   display:inline-block;
   padding: 30px;
@@ -205,7 +197,7 @@ pages style
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   margin:200px;
   position: relative;
-}
+}*/
 
 
 /*form
@@ -241,4 +233,42 @@ input[type="submit"]{
 .sign_up.actions {
     background-color: $black-button!important;
   }
+
+
+
+/*profile page*/
+
+.page{
+
+  min-height: 600px;
+}
+.profile_title {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2,50px);
+  grid-gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas: 
+    "a a b b b c"
+    "a a e e e e";
+  align-items: start;
+}
+
+
+.profile img {
+  width: 200%;
+  grid-area: a;
+/*  width: 220px;
+  grid-column-start: 1;
+  display: inline-block;*/
+}
+p.title {
+  grid-area: b;
+  color: $black-button;
+}
+p.bio {
+  grid-area: e;
+  color: $black-button;
+}
+
 

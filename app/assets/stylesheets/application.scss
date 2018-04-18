@@ -96,7 +96,7 @@ body{
     min-width: 90px;
 
     & a {
-      color: white;
+      color: $white-light;
     }
   }
 
@@ -121,12 +121,10 @@ body{
     color: $black-button;
     grid-area: c;
     /*max-width: 50%;*/
-
-  
+ 
     & a {
       color: $black-button;
     }
-
   }
 
 }
@@ -234,6 +232,10 @@ input[type="submit"]{
     background-color: $black-button!important;
   }
 
+.sign_up.actions {
+    background-color: $black-button!important;
+  }
+
 
 
 /*profile page*/
@@ -250,7 +252,9 @@ input[type="submit"]{
   grid-auto-rows: 100px;
   grid-template-areas: 
     "a a b b b c"
-    "a a e e e e";
+    "a a e e e e"
+    "a a f f f f"
+    ;
   align-items: start;
 }
 
@@ -267,8 +271,21 @@ p.title {
   color: $black-button;
 }
 p.bio {
-  grid-area: e;
+  grid-area: f;
   color: $black-button;
 }
 
+.edit {
+    background-color: $blue-button;
+    float: right;
+    /*margin-left: 150px;*/
+    color: $black-button;
+    grid-area: e;
+    width: 70px;
+    color: $white-light;
+
+    & a {
+      color: $white-light;
+    }
+  }
 

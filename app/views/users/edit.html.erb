@@ -11,11 +11,13 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div><br>
     <div class="avatar">
-         <%= f.label :Avatar %></br>
-        <%= image_tag @user.avatar.url(:thumb) %>
+        <%= f.label :Avatar %></br>
+        <%= image_tag @user.avatar.url) %>
     </div>
-    <div class="field">
-        <%= f.file_field :avatar %>
+        <div class="field">
+        <%= f.label :Avatar_mk2 %><br>
+        <%= f.file_field :image %>
+    </div>
     </div><br>
     <div class="field">
         <%= f.label :bio%>
@@ -29,3 +31,4 @@
     <% end %>
     </br>
         <%= link_to "Back", :back %>
+

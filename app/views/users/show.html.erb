@@ -2,8 +2,11 @@
 
   <div class ="profile_title">
     <div class ="profile">
-      <%= image_tag @user.avatar.url(:medium) %>
+      <% if @user.avatar.file %>
+        <%= image_tag @user.avatar.url%>
+      <% end %>
     </div>
+        <div id="mapid" style="top:400px;height:150px;left:-204px;width:385px;"></div>
     <p class ="title"><%= @user.name %></p>
     
     <% if user_signed_in? %>

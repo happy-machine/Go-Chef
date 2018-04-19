@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   #before_action :authenticate_user!, except: [:index]
+
+
   def index
     @users = User.all
     if params[:search]
@@ -18,17 +20,21 @@ class UsersController < ApplicationController
     @user=User.find_by(id:params[:id])
   end
 
+  def test
+    session[:test_mode]= !session[:test_mode]
+    @testmode=session[:test_mode]
+    render 'test'
+  end
   def update
     @user=User.find_by(id:params[:id])
-    puts "and user"
-    p current_user
-    p @user
-    if @user == current_user
-    @user.update_attributes(user_params)
-    puts "updated"
-
+    if @user == current_user || session[:test_mode]==true
+      @user.update_attributes(user_params)
+      @user.avatar = params[:file] if params[:file]
+      @user.save!
+      #binding.pry
+      puts "saved"
     else 
-    redirect_to ('/')
+      redirect_to ('/')
     end
   end
 

@@ -20,9 +20,16 @@
       </div> 
       -->
       <div class="nav-links">
+          <button class = "button sign_up">
+              <% if session[:test_mode] %>
+            <%= link_to "test mode", test_mode_path,{:style=>'color:#00FF00;'}%>
+            <% else %>
+             <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
+             <% end %>
+          </button>
         <% if user_signed_in? %>
           <button class = "button sign_up">
-            <%= link_to "Join", destroy_user_session_path, method: :delete %>
+            <%= link_to "sign out", destroy_user_session_path, method: :delete %>
           </button>
         <% else %>
           <button class = "button sign_in">

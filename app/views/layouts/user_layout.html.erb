@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Roboto:400,500" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="nav-bar">
       <div class="logo">
@@ -20,8 +19,8 @@
       </div> 
       -->
       <div class="nav-links">
-          <button class = "button sign_up">
-              <% if session[:test_mode] %>
+       <button class = "button sign_up">
+       <% if session[:test_mode] %>
             <%= link_to "test mode", test_mode_path,{:style=>'color:#00FF00;'}%>
             <% else %>
              <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
@@ -52,5 +51,16 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
 
+    <script type="text/javascript">
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoiZnJlc2hiYmsiLCJhIjoiY2pnNWFnNTFqMXpjbTJxbW9pNzVtaHJmMSJ9.7NqQxzEyLJIaBQH_OqhJ8Q'
+}).addTo(mymap);
+   
+
+</script>
   </body>
 </html>

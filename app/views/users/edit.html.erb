@@ -1,9 +1,11 @@
+    <div id="mapid"></div>
 <div class="page form">
 <h2>
     Edit Profile</h2>
 <h3>
     <%= @user.name %>
 </h3>
+    
 
 <%= form_for @user, url: '/user/update/'+@user.id.to_s, method: 'put'  do |f| %>
     <div class="field">

@@ -7,4 +7,14 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates :name, :presence => true
 
+  def self.search(term)
+    if term
+      where('name LIKE ?', "%#{term}%")
+    else
+      all
+    end
+  end
+
+
+
 end

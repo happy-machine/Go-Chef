@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root "users#index"
   get '/users/:id/edit', to: 'users#edit', as: 'user_edit'
   put '/user/update/:id', to: 'users#update'
+  # get '/users/:id/search', to: 'users#search', as: 'users_search'
+  # get '/search', to: 
+
 end

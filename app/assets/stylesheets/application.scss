@@ -198,6 +198,10 @@ pages style
 }*/
 
 
+
+
+
+
 /*form
 **************/
 
@@ -222,6 +226,12 @@ input[type=checkbox], select {
 
 input[type="submit"]{
     height: 40px!important;
+
+    &.search_button {
+      position: absolute;
+      width: 40px;
+      display: inline;
+    }
 }
 
 .sign_in.actions {
@@ -236,6 +246,15 @@ input[type="submit"]{
     background-color: $black-button!important;
   }
 
+.search {
+  position: relative;
+  width: 140px!important;
+  float: left;
+}
+
+.search button{
+  position: relative;
+}
 
 
 /*profile page*/

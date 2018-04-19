@@ -1,33 +1,38 @@
+    <div id="mapid"></div>
 <div class="page form">
 <h2>
     Edit Profile</h2>
 <h3>
     <%= @user.name %>
 </h3>
+    
 
 <%= form_for @user, url: '/user/update/'+@user.id.to_s, method: 'put'  do |f| %>
     <div class="field">
         <%= f.label :email %>
-            <br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div><br>
+    <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <br>
     <div class="avatar">
-         <%= f.label :Avatar %></br>
-        <%= image_tag @user.avatar.url(:medium) %>
+       <% if @user.avatar.file %>
+            <%= image_tag @user.avatar.url%>
+        <% end %>
     </div>
     <div class="field">
+        <%= f.label :Avatar %><br>
         <%= f.file_field :avatar %>
-    </div><br>
+    </div>
     <div class="field">
         <%= f.label :bio%>
-            <br />
-            <%= f.text_area :bio, autofocus: true, autocomplete: "bio" %>
-    </div></br>
+        <br />
+        <%= f.text_area :bio, autofocus: true, autocomplete: "bio" %>
+    </div>
+
      <%= f.hidden_field :id, :value => params[:id] %>
     <div class="actions">
         <%= f.submit "Update" %>
     </div>
     <% end %>
     </br>
-        <%= link_to "Back", :back %>
-</div>
+    <%= link_to "Back", :back %>

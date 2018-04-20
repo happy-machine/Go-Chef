@@ -50,7 +50,7 @@ body{
   align-items: center;
   text-align: center;
   box-shadow: $box-shadow-bottom-only;
-  z-index: 100;
+  z-index: 10000000;
   background-color: $red-material;
   height: 150px;
   width: 100%;
@@ -246,15 +246,37 @@ input[type="submit"]{
     background-color: $black-button!important;
   }
 
-.search {
+
+
+/*search*/
+
+.search .search_container{
+  width: 100%;
+}
+.search input{
   position: relative;
-  width: 140px!important;
   float: left;
 }
 
 .search button{
-  position: relative;
+  position: absolute;
 }
+.nav-bar input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+.nav-bar .search_container .search_button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 
 /*profile page*/
@@ -311,6 +333,14 @@ p.bio {
 
 #mapid {
   height: 600px;
-  width: 500px;
+  width: 100%;
+
+}
+
+
+#mapid_home {
+  height: 600px;
+  width: 40%;
+
 }
 

@@ -1,0 +1,28 @@
+<div class="page form">
+<h2>Upload images to your gallery</h2>
+<h3><%= current_user.name %></h3>
+</div>
+
+<%= form_for @image, url: user_images_path(current_user), method: 'post'  do |f| %>
+    <div class="field">
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
+    </div>
+    <div class="actions">
+        <%= f.submit "Update" %>
+    </div>
+<% end %>
+
+  <% if @image.errors.any? %>
+    <h4><%= pluralize(@image.errors.count, "error") %> prohibited this file from being saved</h4>
+      <ul class="error_list">
+        <% @image.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+    </br>
+    <%= link_to "Back", :back %>
+
+

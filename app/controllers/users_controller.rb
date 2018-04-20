@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
 
 
   def index
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @testmode=session[:test_mode]
     render 'test'
   end
+
   def update
     @user=User.find_by(id:params[:id])
     if @user == current_user || session[:test_mode]==true

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :reviews
+  has_many :images
   #carrierwave upload mounting
   mount_uploader :avatar, AvatarUploader
 

@@ -1,4 +1,4 @@
-<div class="page">
+<div class="userpage">
 
   <div class ="profile_title">
     <div class ="profile">
@@ -8,8 +8,7 @@
         <%= image_tag "no-image.jpg"%>
       <% end %>
     </div>
-    <div id="mapid" style="top:400px;height:400px;left:-104px;width:400px;">
-    </div>
+
     <div id='mapid'></div>
     <script type="text/javascript">
     var mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -32,22 +31,43 @@
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
 
-    <p class = "bio">Bio: <span><%= @user.bio %></p>
+    <p class = "bio">Bio: <%= @user.bio %></p>
+
+    <section class="reviews">
+
+      <div class="post_review">
+        <%= form_for @user, url: '/user/update/'+@user.id.to_s, method: 'put'  do |f| %>
+        <div class="field">
+          <%= f.label "Review #{@user.name}" %>
+          <br />
+          <%= f.text_area :name, autofocus: false, autocomplete: "email" %>
+        </div>
+        <%= f.hidden_field :id, :value => params[:id] %>
+        <div class="actions">
+        <%= f.submit "Post" %>
+        </div>
+        <% end %>
+      </div>
+      <br>
+      <hr>
+      <br>
+
+      <div class="review">
+        <% @reviews.each do |review| %>
+        <div class="c">
+          <%= review.comment %> 
+          <div class = "rating">
+            <%= review.rating %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+    </section>
 
   </div>
 </div>
 
-
-<div class="list">
-  <% @reviews.each do |review| %>
-  <div class="chef-list">
-    <%= review.comment %> 
-    <div class = "rating">
-      <%= review.rating %>
-    </div>
-  </div>
-  <% end %>
-</div>
 
 
 

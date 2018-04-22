@@ -7,20 +7,17 @@ class ImagesController < ApplicationController
 
 
   def create
-    @user=User.find_by(params[:id])
+    @user = User.find_by(params[:id])
     if @user == current_user || session[:test_mode] == true
       #assigning the image to the signed in user
       @image = @user.images.new(image: params[:file])
       #saving the image and if it saves redirect to user profile, else re-render the form+errors
-      binding.pry
-      @image.save
-      # if @image.save
-      #   binding.pry
-      #   redirect_to user_path(current_user)
-      #   puts "saved"
-      # else
-      #   render :new
-      #end
+      if @image.save
+        redirect_to user_path(current_user)
+        puts "saved"
+      else
+        render :new
+      end
       #binding.pry
     end
   end

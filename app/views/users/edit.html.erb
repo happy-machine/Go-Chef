@@ -5,7 +5,7 @@
     <%= @user.name %>
 </h3>
 
-<%= form_for @user, url: "user/update/#{@user.id.to_s}", method: 'put'  do |f| %>
+<%= form_for @user, url: user_update_path(current_user), method: 'put'  do |f| %>
     <div class="field">
         <%= f.label :email %>
     <br />

@@ -13,9 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    userid = @user.id
-    @reviews = Review.where("user_id = #{userid}")
-    # binding.pry
+    @review = Review.new
   end
 
   def edit
@@ -28,6 +26,21 @@ class UsersController < ApplicationController
     @testmode=session[:test_mode]
     render 'test'
   end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   def update
     @user=User.find_by(id:params[:id])
     if @user == current_user || session[:test_mode]==true
@@ -44,7 +57,11 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:email, :bio, :avatar, :user_id)
+      params.require(:user).permit(:email, :bio, :avatar, :user_id, )
+    end
+
+    def review_params
+      params.require(:review).permit(:comment, :rating )
     end
 
 end

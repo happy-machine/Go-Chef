@@ -9,6 +9,14 @@
       <% end %>
     </div>
 
+    <div class ="profile">
+      <% if @user.images.each do |i| %>
+        <%= image_tag i.image.url %>
+      <% end %>
+    <% end %>
+    </div>
+    
+
     <div id='mapid'></div>
     <script type="text/javascript">
     var mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -24,7 +32,7 @@
     
     <% if user_signed_in? %>
       <button class="button edit">
-        <%= link_to(raw("<i class='fa fa-cog'></i>"), user_edit_path(@user.id)) %> 
+        <%= link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(@user)) %> 
       </button>
     <% end %>
     <button class = "button back">

@@ -27,14 +27,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user=User.find_by(id:params[:id])
+    @user = User.find(params[:id])
 
     if @user == current_user || session[:test_mode]==true
-      @user.update_attributes(user_params)
-      @user.avatar = params[:file] if params[:file]
-      #binding.pry
-      @user.save!
-      puts "saved"
+      if @user.update_attributes(user_params)
+        redirect_to user_path(@user)
+      else 
+        render 'users/edit'
+      end
     else 
       redirect_to ('/')
     end

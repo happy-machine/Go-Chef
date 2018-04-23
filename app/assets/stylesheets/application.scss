@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 $title-font: normal 24px/1.5 'Open Sans', sans-serif;
 $gray: #7f8c8d;
@@ -332,8 +333,10 @@ p.bio {
 
 
 #mapid {
-  height: 600px;
-  width: 100%;
+  top:300px;
+  height:200px;
+  left: -240px;
+  width:200%
 
 }
 
@@ -344,3 +347,13 @@ p.bio {
 
 }
 
+
+#user_bio {
+  height: 100px;
+  width: 100%;
+
+}
+.notice{
+color:#ff0000;
+
+}

@@ -38,6 +38,11 @@
     <%= f.text_field :location_lon, autofocus: true, autocomplete: "location_lon" %>
     </div>
     
+        <div class="field">
+    <%= f.label "Distance I will travel (miles)" %><br />
+    <%= f.text_field :range_to, autofocus: true, autocomplete: "range_to" %>
+    </div>
+    
     <div>
       <%= f.submit "Join",:class => "actions sign_up"%>
     </div>

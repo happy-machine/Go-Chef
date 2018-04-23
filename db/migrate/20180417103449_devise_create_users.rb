@@ -23,8 +23,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       ## Custom field on users
       t.string :name, null: false
-      t.float :location_lat, null: false
-      t.float :location_lon, null: false
+      t.float :location_lat
+      t.float :location_lon
       t.integer :max_party_size
       t.integer :price_per_head
       

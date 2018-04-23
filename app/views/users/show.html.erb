@@ -1,4 +1,4 @@
-<div class="page">
+<div class="userpage">
 
   <div class ="profile_title">
     <div class ="profile">
@@ -8,8 +8,15 @@
         <%= image_tag "no-image.jpg"%>
       <% end %>
     </div>
-    <div id="mapid" style="top:400px;height:400px;left:-104px;width:400px;">
+
+    <div class ="profile">
+      <% if @user.images.each do |i| %>
+        <%= image_tag i.image.url %>
+      <% end %>
+    <% end %>
     </div>
+    
+
     <div id='mapid'></div>
     <script type="text/javascript">
     var mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -25,29 +32,30 @@
     
     <% if user_signed_in? %>
       <button class="button edit">
-        <%= link_to(raw("<i class='fa fa-cog'></i>"), user_edit_path(@user.id)) %> 
+        <%= link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(@user)) %> 
       </button>
     <% end %>
     <button class = "button back">
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
 
-    <p class = "bio">Bio: <span><%= @user.bio %></p>
+    <p class = "bio">Bio: <%= @user.bio %></p>
+
+    <section class="reviews">
+
+      <%= render(:partial => 'reviews/review') %>
+      <%= render(:partial => 'reviews/show') %>
+
+    
+
+
+
+
+    </section>
 
   </div>
 </div>
 
-
-<div class="list">
-  <% @reviews.each do |review| %>
-  <div class="chef-list">
-    <%= review.comment %> 
-    <div class = "rating">
-      <%= review.rating %>
-    </div>
-  </div>
-  <% end %>
-</div>
 
 
 

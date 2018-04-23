@@ -1,10 +1,8 @@
 class User < ApplicationRecord
-  has_many :reviews
-  has_many :images
   #carrierwave upload mounting
   mount_uploader :avatar, AvatarUploader
 
-  # Include default devise modules. Others available are:
+    # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -18,5 +16,7 @@ class User < ApplicationRecord
   end
 
 
+  has_many :reviews
+  has_many :images
 
 end

@@ -32,7 +32,7 @@
     
     <% if user_signed_in? %>
       <button class="button edit">
-        <%= link_to(raw("<i class='fa fa-cog'></i>"), user_edit_path(@user.id)) %> 
+        <%= link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(@user)) %> 
       </button>
     <% end %>
     <button class = "button back">

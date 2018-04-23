@@ -4,6 +4,7 @@
 <h3>
     <%= @user.name %>
 </h3>
+    
 
 <%= form_for @user, url: user_update_path(current_user), method: 'put'  do |f| %>
     <div class="field">
@@ -27,6 +28,17 @@
         <%= f.text_area :bio, autofocus: true, autocomplete: "bio" %>
     </div>
 
+    <div id='mapid_edit'></div>
+        <script type="text/javascript">
+        var mymap = L.map('mapid_edit').setView([51.505, -0.09], 13);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
+        }).addTo(mymap);
+  </script>
+  
      <%= f.hidden_field :id, :value => params[:id] %>
     <div class="actions">
         <%= f.submit "Update" %>

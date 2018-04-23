@@ -1,20 +1,13 @@
-<div class="page">
-    <div id='mapid'></div>
-    <script type="text/javascript">
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
-    }).addTo(mymap);
-  </script>
+<div class="userpage">
 
   <div class ="profile_title">
     <div class ="profile">
       <% if @user.avatar.file %>
         <%= image_tag @user.avatar.url%>
+      <% else %>
+        <%= image_tag "no-image.jpg"%>
       <% end %>
+    </div>
 
     <div class ="profile">
       <% if @user.images.each do |i| %>
@@ -24,9 +17,17 @@
     </div>
     
 
+    <div id='mapid'></div>
+    <script type="text/javascript">
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
+    }).addTo(mymap);
+    </script>
 
-    </div>
-        <div id="mapid" style="top:400px;height:150px;left:-204px;width:385px;"></div>
     <p class ="title"><%= @user.name %></p>
     
     <% if user_signed_in? %>
@@ -37,11 +38,24 @@
     <button class = "button back">
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
-  <p class = "bio">Bio: <span>
-    <%= @user.bio %>
 
-  </p>
+    <p class = "bio">Bio: <%= @user.bio %></p>
+
+    <section class="reviews">
+
+      <%= render(:partial => 'reviews/review') %>
+      <%= render(:partial => 'reviews/show') %>
+
+    
+
+
+
+
+    </section>
+
   </div>
 </div>
+
+
 
 

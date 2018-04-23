@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
-
   def index
     @users = User.all
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all.order("created_at DESC")
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    @review = Review.new
   end
 
   def edit
@@ -37,7 +42,11 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:email, :bio, :avatar)
+      params.require(:user).permit(:email, :bio, :avatar, :user_id, )
+    end
+
+    def review_params
+      params.require(:review).permit(:comment, :rating )
     end
 
 end

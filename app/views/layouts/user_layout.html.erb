@@ -7,16 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Roboto:400,500" rel="stylesheet">
-    <div id='mapid'></div>
-    <script type="text/javascript">
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
-    }).addTo(mymap);
-  </script>
+ 
 
     <div class="nav-bar">
       <div class="logo">
@@ -55,10 +46,13 @@
   <body>
 
     
-
+      <div id=""></div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+
+
     <%= yield %>
 
     <script type="text/javascript">
@@ -67,7 +61,7 @@
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoiZnJlc2hiYmsiLCJhIjoiY2pnNWFnNTFqMXpjbTJxbW9pNzVtaHJmMSJ9.7NqQxzEyLJIaBQH_OqhJ8Q'
+    accessToken: 'k.eyJ1IjoiZnJlc2hiYmsiLCJhIjoiY2pnNWFnNTFqMXpjbTJxbW9pNzVtaHJmMSJ9.7NqQxzEyLJIaBQH_OqhJ8Q'
 }).addTo(mymap);
    
 

@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
+gem 'font-awesome-rails'
+gem 'geokit-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

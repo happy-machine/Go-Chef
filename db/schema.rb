@@ -10,6 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20180423124411) do
+
+  create_table "ratings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 ActiveRecord::Schema.define(version: 20180420113240) do
 
@@ -20,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180420113240) do
     t.integer "user_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
+end
 
 
   create_table "reviews", force: :cascade do |t|
@@ -53,6 +60,8 @@ ActiveRecord::Schema.define(version: 20180420113240) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "avatar"
+    t.integer "range_to"
+    t.integer "rating"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

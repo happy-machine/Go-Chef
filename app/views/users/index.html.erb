@@ -1,33 +1,19 @@
-<div class="index">
-
-  <div class ="search_container">
-    <%= form_tag(users_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Chefs" %>
-    <%= submit_tag 'Search', name: nil, :class => "search_button" %>
-    <% end %>
-  </div>
-
-  <div class="list home">
+<div class="list">
     <% @users.each do |user| %>
-    <div class="chef-list">
-      <%= link_to "#{user.name}", user_path(user) %> <br>
-      <button class="button show"><%= link_to "Show", user_path(user)%> </button>
-    </div>
-    <% end %>
-  </div>
-
-
-    <!-- <div id="mapid" >
-    </div>
-    <div id='mapid'></div>
-    <script type="text/javascript">
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
-    }).addTo(mymap);
-    </script> -->
-
-</div>
+        <div class="chef-list">
+            <%= link_to "#{user.name}", user_path(user) %>
+                <button class="button show">
+                    <%= link_to "Show", user_path(user, :id => user.id)%>
+                </button>
+                <div class="ratings_bar">
+                <% 5.times do |i|%>
+                   <% if user.average_rating > i %>
+                     <%= link_to(raw(fa_icon "spoon"), user_path(user, :id => user.id))%> 
+                       <% else %>
+                         <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_path(user, :id => user.id)) %> -->
+                              <% end %>
+                            <% end %>
+                        </div>
+                        </div>
+                        <% end %>
+                         

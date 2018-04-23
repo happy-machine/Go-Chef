@@ -1,4 +1,7 @@
+
 <div class="userpage">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
   <div class ="profile_title">
     <div class ="profile">
@@ -7,30 +10,37 @@
       <% else %>
         <%= image_tag "no-image.jpg"%>
       <% end %>
-    </div>
-
-    <div class ="profile">
-      <% if @user.images.each do |i| %>
+         <% if @user.images.each do |i| %>
         <%= image_tag i.image.url %>
       <% end %>
     <% end %>
     </div>
-    
-
-    <div id='mapid'></div>
+    <div id="mapid">
+    </div>
     <script type="text/javascript">
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').setView([<%="#{@user.location_lat},#{@user.location_lon}"%>],6);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
+        zoomControl: false,
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
     }).addTo(mymap);
+    L.circle([<%="#{@user.location_lat},#{@user.location_lon}],#{(@user.range_to||50)*1000}"%>,{color: '#FF0000'}).addTo(mymap)
+    var goChefIcon = L.icon({
+    //iconUrl: $("#jstransfer").html(),
+    iconUrl: '/gochef_logo.png',
+
+    iconSize:     [38, 95], 
+    iconAnchor:   [22, 94], 
+    popupAnchor:  [-3, -76], 
+    className: 'mapIcon'
+});
+L.marker([<%="#{@user.location_lat},#{@user.location_lon}"%>], {icon: goChefIcon}).addTo(mymap);
     </script>
 
     <p class ="title"><%= @user.name %></p>
-    
-    <% if user_signed_in? %>
+    <br>
+    <% if user_signed_in?||session[:test_mode] %>
       <button class="button edit">
         <%= link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(@user)) %> 
       </button>

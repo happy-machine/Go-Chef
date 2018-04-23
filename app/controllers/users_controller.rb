@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
 
   # before_action :authenticate_user!, except: [:index, :show] 
 
+=======
+  before_action :authenticate_user!, except: [:index]
+>>>>>>> master
 
   def index
     @users = User.all
@@ -20,7 +24,7 @@ class UsersController < ApplicationController
 
   def edit
     p params
-    @user=User.find_by(id:params[:id])
+    @user = User.find(params[:id])
   end
 
   def test
@@ -28,8 +32,10 @@ class UsersController < ApplicationController
     @testmode=session[:test_mode]
     render 'test'
   end
+
   def update
-    @user=User.find_by(id:params[:id])
+    @user = User.find(params[:id])
+
     if @user == current_user || session[:test_mode]==true
       @user.update_attributes(user_params)
       @user.avatar = params[:file] if params[:file]
@@ -49,6 +55,10 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:email, :bio, :avatar, :user_id, :range_to, :location_lat, :location_lon, :search)
+    end
+
+    def review_params
+      params.require(:review).permit(:comment, :rating )
     end
 
 end

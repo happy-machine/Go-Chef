@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="nav-bar">
+
       <div class="logo">
         <%= link_to (image_tag ("gochef_logo.png"), class: 'logo'), "/" %>
       </div>  
@@ -22,30 +23,41 @@
       </div>-->
 
       <div class="nav-links">
-          <button class = "button sign_up">
-              <% if session[:test_mode] %>
+        <button class = "button sign_up">
+          <% if session[:test_mode] %>
             <%= link_to "test mode", test_mode_path,{:style=>'color:#00FF00;'}%>
-            <% else %>
-             <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
-             <% end %>
-          </button>
+          <% else %>
+           <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
+          <% end %>
+        </button>
+
         <% if user_signed_in? %>
           <button class = "button sign_up">
-            <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+          <%= link_to "sign out", destroy_user_session_path, method: :delete %>
           </button>
         <% else %>
           <button class = "button sign_in">
-            <%= link_to "sign in", new_user_session_path %>
+          <%= link_to "sign in", new_user_session_path %>
           </button>
           <button class = "button sign_up">
-            <%= link_to "Join", new_user_registration_path %>
+          <%= link_to "Join", new_user_registration_path %>
           </button>
         <% end %>
       </div>
+      
     </div>
   </head>
 
-  <body>
+  <body class="content">
+<!--       
+
+      <div class ="search search_container">
+        <%= form_tag(users_path, method: :get) do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Chefs" %>
+          <%= submit_tag 'Search', name: nil, :class => "search_button" %>
+        <% end %>
+      </div> 
+-->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

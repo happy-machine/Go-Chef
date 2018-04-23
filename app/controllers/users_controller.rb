@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
 
   # before_action :authenticate_user!, except: [:index, :show] 
 
-=======
-  before_action :authenticate_user!, except: [:index]
->>>>>>> master
 
   def index
     @users = User.all
@@ -20,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     userid = @user.id
     @reviews = Review.where("user_id = #{userid}")
+    @review = Review.new
   end
 
   def edit
@@ -38,9 +35,9 @@ class UsersController < ApplicationController
 
     if @user == current_user || session[:test_mode]==true
       @user.update_attributes(user_params)
-      @user.avatar = params[:file] if params[:file]
-      if params[:search]
-        pc = Geokit::Geocoders::MultiGeocoder.geocode ('ox331pu')
+      params[:file]?@user.avatar = params[:file]:nil
+      if params[:search] && false
+        pc = Geokit::Geocoders::MultiGeocoder.geocode (params[:search])
         @user.update_attributes(location_lat:pc[:lat],location_lon:pc[:lng])
       end
       @user.save!

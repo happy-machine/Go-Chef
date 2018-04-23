@@ -8,12 +8,12 @@
                 <div class="ratings_bar">
                 <% 5.times do |i|%>
                    <% if user.average_rating > i %>
-                     <%= link_to(raw(fa_icon "spoon"), user_edit_path(user.id)) %> 
+                     <%= link_to(raw(fa_icon "spoon"), user_path(user, :id => user.id))%> 
                        <% else %>
-                         <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_edit_path(user.id)) %> -->
+                         <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_path(user, :id => user.id)) %> -->
                               <% end %>
                             <% end %>
                         </div>
                         </div>
                         <% end %>
-                          <%=fa_icon "camera-retro"%>
+                         

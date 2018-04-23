@@ -7,7 +7,8 @@ class ImagesController < ApplicationController
 
 
   def create
-    @user = current_user
+    @user = User.find(params[:user_id])
+    binding.pry
     if @user == current_user
       #assigning the image to the signed in user
       @image = @user.images.new(image_params)

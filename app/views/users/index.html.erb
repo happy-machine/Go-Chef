@@ -9,11 +9,11 @@
                 <% 5.times do |i|%>
                    <% if user.average_rating > i %>
                      <%= link_to(raw(fa_icon "spoon"), user_path(user, :id => user.id))%> 
-                       <% else %>
-                         <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_path(user, :id => user.id)) %> -->
-                              <% end %>
-                            <% end %>
-                        </div>
-                        </div>
-                        <% end %>
+                   <% else %>
+                      <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_path(user, :id => user.id)) %> -->
+                   <% end %>
+                <% end %>
+                </div>
+          </div>
+      <% end %>
                          

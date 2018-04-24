@@ -22,11 +22,10 @@ class ReviewsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @review = @user.reviews.new(review_params)
+    # binding.pry
     if @review.save
-      flash[:notice] = "Review posted successfully."
       redirect_to(user_path(@user))
     else
-      flash[:notice] = "Error"
       render('users#show')
     end
   end

@@ -12,12 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20180423124411) do
 
-  create_table "ratings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-ActiveRecord::Schema.define(version: 20180420113240) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,13 +22,19 @@ ActiveRecord::Schema.define(version: 20180420113240) do
     t.integer "user_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
-end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.integer "rating"
-    t.integer "user_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -48,8 +50,8 @@ end
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "name", null: false
-    t.float "location_lat", null: false
-    t.float "location_lon", null: false
+    t.float "location_lat"
+    t.float "location_lon"
     t.integer "max_party_size"
     t.integer "price_per_head"
     t.datetime "created_at", null: false
@@ -66,4 +68,6 @@ end
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ratings", "users"
+  add_foreign_key "reviews", "users"
 end

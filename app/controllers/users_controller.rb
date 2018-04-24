@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     userid = @user.id
-    @reviews = Review.where("user_id = #{userid}")
+    @reviews = Review.where("user_id = #{userid}").order("created_at ASC")
     @review = Review.new
   end
 

@@ -250,8 +250,8 @@ pages style
 }
 
 .page {
-  overflow: -webkit-paged-y;
-  display:inline-block;
+/*  overflow: -webkit-paged-y;
+*/  display:inline-block;
   padding: 30px;
   margin-top: 180px;
   width: 90%;
@@ -262,8 +262,8 @@ pages style
 }
 
 .userpage {
-  overflow: -webkit-paged-y;
-  display:inline-block;
+/*  overflow: -webkit-paged-y;
+*/  display:inline-block;
   padding: 30px;
   margin-top: 180px;
   width: 93%;
@@ -550,3 +550,21 @@ color:#ff0000;
   #location_icon:hover{
     color:rgb(255, 68, 68);
   }
+
+
+
+
+.notice {
+  
+    min-width: 250px;
+    margin-left: -125px;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 100000000;
+    left: 50%;
+    font-size: 17px;
+}
+

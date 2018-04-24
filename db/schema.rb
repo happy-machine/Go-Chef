@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20180423222238) do
     t.text "comment"
     t.integer "rating"
     t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  
   enum status: [:rating]
-  has_many :reviews
+  has_many :reviews, -> { order(created_at: :desc) }
   has_many :ratings
   has_many :images
 
@@ -19,9 +20,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def average_rating 
-    #self.ratings.map(&:rating).sum/ratings.count
-    3
+  def average_rating
+    return reviews.map(&:rating).sum/reviews.count
   end
 
   def self.search(term)

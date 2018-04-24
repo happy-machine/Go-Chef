@@ -122,6 +122,7 @@ body{
     background-color: $yellow-material;
     /*float: right;*/
     width: 75px;
+    display: block
   }
 
   &.back {
@@ -460,7 +461,13 @@ color:#ff0000;
 
   }
 
-
+.rating {
+  color: $yellow-material;
+}
+.rating .empty {
+  color: $gray;
+  opacity: 0.5;
+}
 
 
 .notice {

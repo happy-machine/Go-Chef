@@ -1,12 +1,8 @@
     <section class="reviews">
-
       <div class="post_review">
-
-
-
         <%= form_for @review, url: user_reviews_path(@user) do |f| %>
         <div class="field">
-          <%= f.label "Review #{@user.name}" %>
+          <%= f.label "Leave a review." %>
           <br />
           <%= f.text_area :comment, autofocus: false, autocomplete: "email" %>
         </div>
@@ -14,20 +10,10 @@
         <%= f.submit "Post" %>
         </div>
         <% end %>
-
-
-
-
-
       </div>
       <br>
       <hr>
       <br>
-
-
-
-
-
     </section>
 
 

@@ -2,70 +2,58 @@
 <div class="userpage">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-  <div class ="profile_title">
-    <div class ="profile">
-      <% if @user.avatar.file %>
+  <div class ="profile_title"> 
+  <div id ="chef_gallery">
+      <% @user.images.each do |i| %>
+        <div class="photos" style="background-image: url(<%= i.image.url %>" id="<%=i.image.url%>"></div>
+      <% end %>
+  </div>
+  <div class ="profile">     
+    <% if @user.avatar.file %>
         <%= image_tag @user.avatar.url%>
       <% else %>
         <%= image_tag "no-image.jpg"%>
-      <% end %>
-         <% if @user.images.each do |i| %>
-        <%= image_tag i.image.url %>
-      <% end %>
     <% end %>
-    </div>
-    <div id="mapid">
-    </div>
-    <script type="text/javascript">
+  </div>
+<div id="mapid"></div>
+<script type="text/javascript">
+
     var mymap = L.map('mapid').setView([<%="#{@user.location_lat},#{@user.location_lon}"%>],6);
+
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         maxZoom: 18,
         zoomControl: false,
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
-    }).addTo(mymap);
+      }).addTo(mymap);
     L.circle([<%="#{@user.location_lat},#{@user.location_lon}],#{(@user.range_to||50)*1000}"%>,{color: '#FF0000'}).addTo(mymap)
     var goChefIcon = L.icon({
-    //iconUrl: $("#jstransfer").html(),
-    iconUrl: '/gochef_logo.png',
-
-    iconSize:     [38, 95], 
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76], 
-    className: 'mapIcon'
-});
-L.marker([<%="#{@user.location_lat},#{@user.location_lon}"%>], {icon: goChefIcon}).addTo(mymap);
-    </script>
-
+      iconUrl: '/gochef_logo.png',
+      iconSize:     [38, 95], 
+      iconAnchor:   [22, 94], 
+      popupAnchor:  [-3, -76], 
+      className: 'mapIcon'
+    });
+    L.marker([<%="#{@user.location_lat},#{@user.location_lon}"%>], {icon: goChefIcon}).addTo(mymap);
+    $(".photos").click(function() {
+    window.open(this.nextElementSibling.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
+    });
+    
+</script>
     <p class ="title"><%= @user.name %></p>
     <br>
-    <% if user_signed_in?||session[:test_mode] %>
-      <button class="button edit">
-        <%= link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(@user)) %> 
-      </button>
-    <% end %>
+    <% if @user==current_user && user_signed_in? ||session[:test_mode] %>
+        <button class="button edit">
+          <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
+        </button>
+      <% end %>
     <button class = "button back">
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
-
-    <p class = "bio">Bio: <%= @user.bio %></p>
-
-    <section class="reviews">
-
-      <%= render(:partial => 'reviews/review') %>
-      <%= render(:partial => 'reviews/show') %>
-
-    
-
-
-
-
-    </section>
-
+    <!--<div id="profile_bar"></div>-->
+    <p class = "bio"><%= @user.bio %></p>
+      <section class="reviews">
+        <%= user_signed_in? ? render(:partial => 'reviews/review'): nil %>
+        <%= render(:partial => 'reviews/show') %>
+      </section>
   </div>
-</div>
-
-
-
-

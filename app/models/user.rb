@@ -14,7 +14,7 @@ class User < ApplicationRecord
   #carrierwave upload mounting
   mount_uploader :avatar, AvatarUploader
 
-    # Include default devise modules. Others available are:
+  # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   def average_rating 
     #self.ratings.map(&:rating).sum/ratings.count
     3
-      end
+  end
 
   def self.search(term)
     if term
@@ -30,9 +30,6 @@ class User < ApplicationRecord
     else
       all
     end
-
   end
-
-
 
 end

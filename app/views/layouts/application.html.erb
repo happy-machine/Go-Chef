@@ -2,52 +2,53 @@
 <html>
   <head>
     <title>Go Chef</title>
-    <%= csrf_meta_tags %>
-
+      <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Roboto:400,500" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Original+Surfer" rel="stylesheet">
     <div class="nav-bar">
-
+      <h1><i>find <strong>your</strong> chef to go!</i></h1>
+      <div id="logo_font">Go Chef</div>
       <div class="logo">
         <%= link_to (image_tag ("gochef_logo.png"), class: 'logo'), "/" %>
       </div>  
-<!--
+      <!--
       <div class ="search search_container">
         <%= form_tag(users_path, method: :get) do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Chefs" %>
           <%= submit_tag 'Search', name: nil, :class => "search_button" %>
         <% end %>
       </div>-->
-
       <div class="nav-links">
+           <% if user_signed_in?  %>
+                <button class="button blue_button">
+                    <%=link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(current_user.id))%> 
+                 </button>
+          <% end %>
+      <!--
         <button class = "button sign_up">
           <% if session[:test_mode] %>
             <%= link_to "test mode", test_mode_path,{:style=>'color:#00FF00;'}%>
           <% else %>
            <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
           <% end %>
-        </button>
-
+      </button>-->
         <% if user_signed_in? %>
           <button class = "button sign_up">
-          <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+            <%= link_to "sign out", destroy_user_session_path, method: :delete %>
           </button>
         <% else %>
           <button class = "button sign_in">
-          <%= link_to "sign in", new_user_session_path %>
+            <%= link_to "sign in", new_user_session_path %>
           </button>
           <button class = "button sign_up">
-          <%= link_to "Join", new_user_registration_path %>
+            <%= link_to "Join", new_user_registration_path %>
           </button>
         <% end %>
       </div>
-      
     </div>
   </head>
-
   <body class="content">
 <!--       
 
@@ -58,10 +59,6 @@
         <% end %>
       </div> 
 -->
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
-
   </body>
 </html>

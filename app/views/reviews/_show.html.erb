@@ -1,10 +1,14 @@
       <div class="review">
         <% @user.reviews.each do |review| %>
         <div class="c">
-          <%= review.comment %> 
-          <div class = "rating">
-            <%= review.rating %>
+          <%= simple_format(review.comment) %> 
+           <div class="rating">
+                <% 5.times do |i|%>
+                   <% if review.rating && review.rating > i %>
+                     <%= fa_icon "spoon", class: "fa-1x" %> 
+                              <% end %>
+                            <% end %>
+                        </div>
           </div>
+           <% end %>
         </div>
-        <% end %>
-      </div>

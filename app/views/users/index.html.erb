@@ -1,6 +1,6 @@
 <div class="list">
     <% @users.each do |user| %>
-    <% if user.is_chef? %>
+    <% if user.is_a_chef %>
         <div class="chef-list">
             <%= link_to "#{user.name}", user_path(user) %>
                 <button class="button show">

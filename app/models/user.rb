@@ -21,7 +21,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def average_rating
-    return reviews.map(&:rating).sum/reviews.count
+    reviews.map(&:rating).compact.sum/reviews.compact.count.round || 3
   end
 
   def self.search(term)

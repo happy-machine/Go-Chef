@@ -28,7 +28,8 @@ $pink-material: #FF5252;
 $red-material: #F44336;
 $white-light: #FBFBFF;
 $white-bg: #f5f6fa;
-$grey-gal: #f5f4f4;
+$grey-gal: #f7f6f6;
+$grey-prof: #f7f7f7;
 $black-button: #353238;
 $p: 'Montserrat', sans-serif;
 $h: 'Roboto', sans-serif;
@@ -78,6 +79,21 @@ textarea{
   background-color: $red-material;
   height: 150px;
   width: 100%;
+
+.notice {
+  margin-top:30px;
+  min-width: 250px;
+  margin-left: 0px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 100000000;
+  left: 0%;
+  font-size: 17px;
+}
+
 }
 .logo{
   top:10px;
@@ -271,6 +287,8 @@ pages style
   background-color: white;
   margin-left:3%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  overflow: scroll;
+  
 }
 
 /*form
@@ -448,7 +466,7 @@ p.title {
   width: 100%;
   height: 250px;
   overflow: hidden;
-  background-color:$grey-gal;
+  background-color:$grey-prof;
   padding:10px;
 }
 
@@ -486,8 +504,11 @@ color:#ff0000;
   width: 100%;
   grid-column: 1 / span 3;
   grid-column-start: 2;
-  grid-row-start: 4;
+  grid-row-start: 4 / span 3;
+  grid-row-end: 5;
   width: 100%;
+  margin-top:20px;
+  //overflow: scroll;
 
   &.review {
     background-color: white;
@@ -501,11 +522,16 @@ color:#ff0000;
   }
 
 }
+.created_at{
+  font-size: small;
+  font-weight: 100;
+}
 
  .reviews .review .c{
     border-bottom: 0.5px solid $gray-button;
     padding: 10px;
-    margin: 10px 0 30px 0;
+    margin-top:5px;
+    margin-bottom:5px;
     padding-bottom: 20px;
     background-color:$grey-gal;
   }
@@ -553,18 +579,4 @@ color:#ff0000;
 
 
 
-
-.notice {
-  
-    min-width: 250px;
-    margin-left: -125px;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 100000000;
-    left: 50%;
-    font-size: 17px;
-}
 

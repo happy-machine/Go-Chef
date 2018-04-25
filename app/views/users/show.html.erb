@@ -17,6 +17,7 @@
     <% end %>
   </div>
 <div id="mapid"></div>
+<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
 <script type="text/javascript">
 
     var mymap = L.map('mapid').setView([<%="#{@user.location_lat},#{@user.location_lon}"%>],6);
@@ -54,7 +55,7 @@
     <!--<div id="profile_bar"></div>-->
     <p class = "bio"><%= @user.bio %></p>
       <section class="reviews">
-        <%= user_signed_in? ? render(:partial => 'reviews/review'): nil %>
+        <%= user_signed_in? && @user!=current_user ? render(:partial => 'reviews/review'): nil %>
         <%= render(:partial => 'reviews/show') %>
       </section>
   </div>

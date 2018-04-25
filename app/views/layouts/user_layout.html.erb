@@ -11,6 +11,7 @@
 
     <div class="nav-bar">
       <h1><i>find your <strong>very own</strong> chef to go!</i></h1>
+      <div class='notice'>yo dddddddyo</div>
       <div class="logo">
   
         <%= link_to (image_tag ("gochef_logo.png"), class: 'logo'), "/" %>
@@ -50,15 +51,6 @@
 
     <%= yield %>
 
-    <script type="text/javascript">
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'k.eyJ1IjoiZnJlc2hiYmsiLCJhIjoiY2pnNWFnNTFqMXpjbTJxbW9pNzVtaHJmMSJ9.7NqQxzEyLJIaBQH_OqhJ8Q'
-}).addTo(mymap);
    
-
-</script>
   </body>
 </html>

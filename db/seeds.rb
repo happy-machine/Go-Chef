@@ -25,6 +25,18 @@ images = [
     {image: Rails.root.join("db/seed_images/download1.jpeg").open},
     {image: Rails.root.join("db/seed_images/download1.jpeg").open},
     {image: Rails.root.join("db/seed_images/download.jpeg").open}
+ ]
+
+
+avatars = [
+    {avatar: Rails.root.join("db/seed_images/gordon.jpg").open},
+    {avatar: Rails.root.join("db/seed_images/DeliaSmith.jpg").open},
+    {avatar: Rails.root.join("db/seed_images/ainsley.jpg").open},
+    {avatar: Rails.root.join("db/seed_images/download1.jpeg").open},
+    {avatar: Rails.root.join("db/seed_images/VikramSingh.jpg").open},
+    {avatar: Rails.root.join("db/seed_images/jamie.jpg").open},
+    {avatar: Rails.root.join("db/seed_images/zoeflash.jpg").open},
+    {avatar: Rails.root.join("db/seed_images/nigellalawson.jpg").open}
    
  ]
 
@@ -47,19 +59,24 @@ reviews = [
    {user_id: 6, rating: 1, comment: 'Chef is successful in fulfilling its ambitions - offering a pleasant meal.'},
    {user_id: 1, rating: 1, comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
    {user_id: 5, rating: 4, comment: 'I have to say those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
-   {user_id: 5, rating: 3, comment: 'Very good, with food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
+   {user_id: 5, rating: 3, comment: 'Very good, with food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'}
 ]
 
 Review.create!(reviews)
 
 
 # seed user images
-User.all.each do |user|
+User.all.each_with_index do |user,i|
     Image.all.each do |image|
-        user.images<<image
+        user.images << image
     end
+p user
+   
 end
+
 # seed review image
+
 Review.all.each do |review|
   review.image = Image.first
+  review.save
 end

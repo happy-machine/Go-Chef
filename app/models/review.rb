@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
-  has_one :image
+  belongs_to :image
+
   after_initialize :init
 
   def init

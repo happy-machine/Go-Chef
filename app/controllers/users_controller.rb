@@ -3,6 +3,13 @@ class UsersController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show] 
 
   def index
+    p params
+    if !user_signed_in? && session[:temp_user]==nil
+      temp_user = User.new(id:1000000)
+      temp_user.save
+      @current_user=temp_user
+      render 'welcome'
+    end
     @users = User.all
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
@@ -12,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) || session[:temp_user]
     userid = @user.id
     @reviews = Review.where("user_id = #{userid}").order("created_at ASC")
     @review = Review.new

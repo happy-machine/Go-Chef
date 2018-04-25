@@ -8,7 +8,8 @@
                    <% if review.rating && review.rating > i %>
                      <%= fa_icon "spoon", class: "fa-1x", class: "spoon" %> 
                               <% end %>
-                            <% end %>
+                            <% end %><br><br>
+                            <div class="created_at"> <%=  "#{review.created_at} by #{User.find(review.user_id).name}" %></div>
                             </div>
                         </div>
             <br>

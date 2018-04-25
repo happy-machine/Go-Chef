@@ -55,7 +55,13 @@
     <!--<div id="profile_bar"></div>-->
 <%= simple_format(@user.bio, class: "bio") %>
       <section class="reviews">
-        <%= user_signed_in? && @user!=current_user ? render(:partial => 'reviews/review'): nil %>
+        <% if user_signed_in? && @user!=current_user%>
+        <%= render(:partial => 'reviews/review')%>
+        <% else %>
+        Sign in to leave a review.<br>
+        <% end %>
+
+
         <%= render(:partial => 'reviews/show') %>
       </section>
   </div>

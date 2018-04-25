@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+  Rails.application.config.active_record.belongs_to_required_by_default = false
   enum status: [:rating]
   has_many :reviews, -> { order(created_at: :desc) }
   has_many :ratings

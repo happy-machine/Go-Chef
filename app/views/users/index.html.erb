@@ -8,8 +8,8 @@
                 </button>
                 <div class="ratings_bar">
                 <% 5.times do |i|%>
-                   <% if user.average_rating > i %>
-                     <%= link_to(raw(fa_icon "spoon", class: "fa-1x"), user_path(user, :id => user.id))%> 
+                   <% if user.average_rating != nil && i && user.average_rating > i %>
+                     <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon"), user_path(user, :id => user.id))%> 
                        <% else %>
                          <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_path(user, :id => user.id)) %> -->
                               <% end %>

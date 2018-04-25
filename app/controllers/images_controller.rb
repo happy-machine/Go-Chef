@@ -17,6 +17,7 @@ class ImagesController < ApplicationController
     @user = User.find(params[:user_id])
     if @user == current_user && params[:image]
       @image = @user.images.new(image_params)
+      binding.pry
       if @image.save
         redirect_to new_user_image_path(params[:user_id])
         flash[:notice]="**Image Saved**"

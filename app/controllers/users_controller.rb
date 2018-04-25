@@ -36,7 +36,6 @@ class UsersController < ApplicationController
       params[:file]?@user.avatar = params[:file]:nil
       if params[:search].length>4
         pc = Geokit::Geocoders::MultiGeocoder.geocode (params[:search])
-        p pc.lat
         @user.update_attributes(location_lat:pc.lat,location_lon:pc.lng)
       end
       @user.save!

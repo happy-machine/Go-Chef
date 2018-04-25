@@ -3,6 +3,6 @@ class Image < ApplicationRecord
 
   #this allows uploading of multiple images
   # If you use SQLite, add this line.
-
+  belongs_to :image
   belongs_to :user
 end

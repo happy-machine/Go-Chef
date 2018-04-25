@@ -53,7 +53,7 @@
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
     <!--<div id="profile_bar"></div>-->
-    <p class = "bio"><%= @user.bio %></p>
+<%= simple_format(@user.bio, class: "bio") %>
       <section class="reviews">
         <%= user_signed_in? && @user!=current_user ? render(:partial => 'reviews/review'): nil %>
         <%= render(:partial => 'reviews/show') %>

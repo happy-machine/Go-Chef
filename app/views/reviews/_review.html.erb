@@ -6,6 +6,12 @@
           <br />
           <%= f.text_area :comment, autofocus: false, autocomplete: "review" %>
         </div>
+        <!--
+          <div id="photo_frame" class="photo_frame"></div>
+          <%= f.label "Add a photo" %><br>
+          <%= f.file_field :image %>
+        </div>
+        -->
         <table class ="rating_input">
             <tr>
               <td><%= f.radio_button :rating,1 %> <%= f.label "1" %></td>
@@ -16,7 +22,7 @@
             </tr>
         </table>
         
-        
+       
         <div class="actions">
         <%= f.submit "Post" %>
         </div>
@@ -26,5 +32,5 @@
       <hr>
       <br>
     </section>
-
+    
 

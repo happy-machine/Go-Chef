@@ -19,6 +19,17 @@ users = [
 
 User.create!(users)
 
+images = [
+    {image: Rails.root.join("db/seed_images/download.jpeg").open},
+    {image: Rails.root.join("db/seed_images/download1.jpeg").open},
+    {image: Rails.root.join("db/seed_images/download1.jpeg").open},
+    {image: Rails.root.join("db/seed_images/download1.jpeg").open},
+    {image: Rails.root.join("db/seed_images/download.jpeg").open}
+   
+ ]
+
+Image.create!(images)
+
 
 reviews = [
    {user_id: 1, rating: 2, comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
@@ -40,3 +51,15 @@ reviews = [
 ]
 
 Review.create!(reviews)
+
+
+# seed user images
+User.all.each do |user|
+    Image.all.each do |image|
+        user.images<<image
+    end
+end
+# seed review image
+Review.all.each do |review|
+  review.image = Image.first
+end

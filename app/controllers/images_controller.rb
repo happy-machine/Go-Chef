@@ -1,32 +1,39 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
 
   def new
+    @user = User.find(params[:user_id])
     @image = Image.new
   end
 
-
+  def destroy
+    p User.find(params[:user_id])
+    User.find(params[:user_id]).images.delete(params[:id])
+    flash[:notice]="**Image Deleted**"
+    redirect_to new_user_image_path(current_user)
+  end
   def create
     @user = User.find(params[:user_id])
-    #binding.pry
-    if @user == current_user
-      #assigning the image to the signed in user
+    if @user == current_user && params[:image]
       @image = @user.images.new(image_params)
-      #saving the image and if it saves redirect to user profile, else re-render the form+errors 
+      binding.pry
       if @image.save
-        redirect_to user_path(current_user)
-        puts "saved"
+        redirect_to new_user_image_path(params[:user_id])
+        flash[:notice]="**Image Saved**"
       else
-        puts "not saved"
+        flash[:notice]="**Image Not Saved**"
         render :new
       end
+    else
+      redirect_to user_path(params[:user_id])
     end
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:image)
+    params.require(:image).permit(:image,:id)
   end
 end
 

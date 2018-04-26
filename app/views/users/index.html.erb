@@ -1,3 +1,7 @@
+<div class = "cover">
+ <%= render(:partial => 'users/welcome') %>
+</div>
+
 <div class = "container">
   <div class ="right">
 <div class="list">
@@ -40,8 +44,8 @@
 
 <div class ="search">
         <%= form_tag(users_path, method: :get) do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Chefs" %>
-          <%= submit_tag 'Search', name: nil, :class => "search_button" %>
+          <%= text_field_tag :search, params[:search], placeholder: "Filter Chefs" %>
+          <%= submit_tag 'Filter', name: nil, :class => "search_button" %>
         <% end %>
       </div>
 

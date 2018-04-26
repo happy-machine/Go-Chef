@@ -40,6 +40,8 @@ $h: 'Roboto', sans-serif;
   text-decoration: none;
   margin: 0;
   box-sizing: border-box;
+  font-size: 1em;
+  color: $black-button;
 }
 
 body{
@@ -72,13 +74,14 @@ textarea{
   font-weight: 300;
 }
 .nav-bar{
-  position: fixed;
-  display: inline;
-  box-shadow: $box-shadow-bottom-only;
-  z-index: 10000000;
-  background-color: $red-material;
-  height: 150px;
-  width: 100%;
+    position: fixed;
+    display: inline;
+/*    box-shadow: 2 2px 2px 0 rgba(54, 50, 57, 0.3);
+*/    z-index: 10000000;
+    background-color: $red-material;
+    height: 62px;
+    width: 100%;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
 
 .notice {
   margin-top:30px;
@@ -96,13 +99,13 @@ textarea{
 
 }
 .logo{
-  top:10px;
+  top:4px;
   position:fixed;
   float: left;  
-  width: 150px;
-  margin-left: 8px;
+  width: 120px;
+  margin-left: 15px;
   padding: 5px 10px 0 0;
-  -webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
+  -webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
 }
 .nav-links {
   top:0px;
@@ -113,7 +116,7 @@ textarea{
   text-align: center;
   display:inline-block;
   vertical-align:top;
-  line-height: 150px;
+  line-height: 67px;
 }
 
 
@@ -156,35 +159,47 @@ textarea{
     }
   }
   &.show {
-    background-color: $yellow-material;
+    background-color: #e8e6df;
     float: right;
     width: 75px;
   }
   &.show:hover {
-    background-color: rgb(254, 158, 14);
+ 
+    /*background-color: rgb(254, 158, 14);*/
     float: right;
     width: 75px;
-    display: block
+    display: block;
   }
-  &.back {
-    float: right;
-    color: $black-button;
-    grid-column: 1 / span 1;
-    grid-column-start: 4;
-    grid-row-start: 1;
-    width: 100%;
-    padding: 2px;
-    z-index: 100;
+
+
 
  
     & a {
       color: $black-button;
       padding: 2px;
     }
-  }
+
 
 }
+
+.button.back {
+     background-color: #e8e6df!important;
+    float: right;
+    color: #e8e6df!important;
+    grid-column: 1 / span 1;
+    grid-column-start: 4;
+    grid-row-start: 1;
+    width: 100%;
+    padding: 2px;
+    z-index: 100;}
+
 .button:hover {opacity: 0.95}
+
+/*.link_to_sign_in {
+   color: $black-button;
+    background-color: white;
+    border: 1px $gray solid;
+}*/
 
 
 
@@ -210,7 +225,7 @@ list of the chefs
 //List of chefs
 .list{
   position:absolute;
-  margin-top:150px;
+  margin-top:115px;
   margin-left:25px;
 }
 
@@ -232,7 +247,7 @@ list of the chefs
   grid-row-start: 1;
 }
 
-[class^="chef"] {
+[class ="chef-list"] {
   min-width: 200px;
   max-width: 400px;
   width: 30%;
@@ -243,16 +258,18 @@ list of the chefs
   margin-left: 20px;
   padding: 30px 20px 30px 20px;
   display: inline-block;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow:0 1px 1px rgba(0, 0, 0, 0.12), 0 0px 1px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 [class^="chef"] a {
   color: $black-button;
+  display: block;
+
 }
 
-[class^="chef"]:hover {
-  box-shadow: 0 2px 7px rgba(0,0,0,0.25), 0 2px 5px rgba(0,0,0,0.15);
+[class="chef-list"]:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15);
 }
 
 /*
@@ -283,7 +300,7 @@ pages style
 /*  overflow: -webkit-paged-y;
 */  display:inline-block;
   padding: 30px;
-  margin-top: 180px;
+  margin-top: 135px;
   width: 93%;
   color: $black-button;
   background-color: white;
@@ -424,13 +441,14 @@ input[type="submit"]{
 #chef_gallery{
   width: 100%;
   padding:10px;
-  background-color: $grey-gal;
+  /*background-color: $grey-gal;*/
   grid-column: 1 / span 1;
   grid-column-start: 1;
   grid-row-start: 5 ;
   grid-template-columns: 90px 90px 90px ;
   grid-template-rows: 90px 90px 90px ;
   grid-gap: 0.5em;
+  /*border: 1px $gray solid;*/
 
 }
 
@@ -442,14 +460,22 @@ input[type="submit"]{
   display:inline-block;
   background-size: cover;
 }
+.profile{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+}
 
 .profile img {
-  grid-column: 1 / span 1;
-  grid-column-start: 1;
-  grid-row-start: 1 ;
-  height:300px;
-  width: 100%;
-  border-radius: 2px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+           /* height: 300px;*/
+            width: 100%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 #edit_image{
   align-self: center;
@@ -469,7 +495,8 @@ p.title {
   width: 100%;
   height: 250px;
   overflow: hidden;
-  background-color:$grey-prof;
+/*  background-color:$grey-prof;*/
+line-height: 22px;
   padding:10px;
 }
 
@@ -541,10 +568,18 @@ color:#ff0000;
  .reviews .review .c{
     border-bottom: 0.5px solid $gray-button;
     padding: 10px;
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top:20px;
+    margin-bottom:10px;
     padding-bottom: 20px;
-    background-color:$grey-gal;
+    font-size: 24px;
+/*    background-color:$grey-gal;*/
+  }
+
+  .reviews .review .c p{
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+/*    background-color:$grey-gal;*/
   }
   
  
@@ -570,9 +605,17 @@ color:#ff0000;
 .rating {
   color: $yellow-material;
 }
+.rating p {
+  color: black;
+  margin-bottom: 10px;
+}
 .rating .empty {
   color: $gray;
   opacity: 0.5;
+}
+
+.rating .created_at{
+  color: $gray;
 }
 
   .gallery_form {
@@ -599,9 +642,6 @@ color:#ff0000;
     color:rgb(255, 68, 68);
   }
 
-
-
-
   .rating_input{
     display: block;
    }
@@ -612,3 +652,62 @@ color:#ff0000;
     text-align: center;
    }
 
+   .chef-list-profile {
+      width: 110px;
+      height: 110px;
+      /*position: relative;*/
+      overflow: hidden;
+      background-position: center center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-block;
+   }
+
+    .chef-list-profile:hover {
+
+      border: 20 red solid;
+
+   }
+
+    .chef-list-profile img{
+     width: 110px;
+     height: 110px;
+   }
+
+   .list-content{
+    float: right;
+    width: 65%;
+   }
+
+    .list-content button{
+      display: inline-block;
+    float: left;
+   }
+
+  .ratings_bar {
+    width: 100%;
+    display: inline-block;
+    font-size: 1.6em;
+    padding-top: 10px;
+   }
+   .ratings_bar i{
+    width: 8px;
+   }
+   .spoon_empty{
+    color: $gray;
+    font-size: 1.6em;
+   }
+  .spoon{
+    color: $yellow-material;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.6em;
+   }
+
+   .ratings_bar a{
+    display: inline;
+   }
+
+.fa .spoon{
+  font-size: 1.6em;
+}

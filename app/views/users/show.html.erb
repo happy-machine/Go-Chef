@@ -62,7 +62,12 @@
         <% if user_signed_in? && session[:user_type] == "registered" %>
         <%= render(:partial => 'reviews/review')%>
         <% else %>
-        Sign in to leave a review.<br>
+
+        <button class = "link_to_sign_in">
+            <%= link_to "Sign in to leave a review", new_user_session_path %>
+          </button>
+
+        <br>
         <% end %>
 
 

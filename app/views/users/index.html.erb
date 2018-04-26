@@ -2,10 +2,19 @@
     <% @users.each do |user| %>
       <% if user.is_a_chef %>
           <div class="chef-list">
+            <div class="chef-list-profile">
+              <% if user.avatar.file %>
+                <%= image_tag user.avatar.url%>
+              <% else %>
+                <%= image_tag "no-image.jpg"%>
+              <% end %>
+
+
+
+            </div>
+            <div class="list-content">
               <%= link_to "#{user.name}", user_path(user) %>
-                  <button class="button show">
-                      <%= link_to "Show", user_path(user)%>
-                  </button>
+                
                   <div class="ratings_bar">
                     <% 5.times do |i|%>
                      <% if user.average_rating != nil && i && user.average_rating > i %>
@@ -16,6 +25,11 @@
                      <% end %>
                     <% end %>
                   </div>
+                  <br><br>
+                  <button class="button show">
+                      <%= link_to "Show", user_path(user)%>
+                  </button>
+                </div>
             </div>             
         <% end %>
     <% end %>

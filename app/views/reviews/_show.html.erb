@@ -1,7 +1,6 @@
       <div class="review">
         <% @user.reviews.each do |review| %>
         <div class="c">
-          <%= simple_format(review.comment) %> 
            <div class="rating">
                 <% 5.times do |i|%>
                    <% if review.rating && i && review.rating > i %>
@@ -10,6 +9,8 @@
                         <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon_empty"), user_path(@user))%> 
                               <% end %>
                             <% end %>
+          <p><%= simple_format(review.comment) %> <p>
+            
                             <div class="created_at"> <%=  "#{review.created_at.to_s.chomp('UTC')} by #{review.reviewer_name}" %></div>
                             </div>
                         </div>

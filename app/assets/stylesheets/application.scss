@@ -164,6 +164,7 @@ textarea{
     background-color: rgb(254, 158, 14);
     float: right;
     width: 75px;
+    display: block
   }
   &.back {
     float: right;
@@ -565,6 +566,15 @@ color:#ff0000;
     color: rgb(255, 152, 152);
   }
 
+
+.rating {
+  color: $yellow-material;
+}
+.rating .empty {
+  color: $gray;
+  opacity: 0.5;
+}
+
   .gallery_form {
     top:100px;
     height:100px;
@@ -574,6 +584,7 @@ color:#ff0000;
   .picture_button:hover{
     color: rgb(254, 93, 93);
   }
+
 
   #location_icon{
     position:absolute;

@@ -23,6 +23,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def show_by_location
+    @user= User.by_distance(:origin => current_user.postcode)
+  end
+
+  def show_by_rating
+    @users User.average_rating.order("created_at ASC")
+  end
+
   def temp_user_created
     session[:user_postcode]=params[:user][:postcode]
     @users = User.all

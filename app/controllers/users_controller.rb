@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show] 
 
   def index
-    puts "name!"
-    p current_user.name
     if current_user.name=="guest" && session[:user_type]!='guest' && session[:user_type]!='registered'
       @current_user=guest_user
       session[:user_type]="guest"
@@ -23,6 +21,7 @@ class UsersController < ApplicationController
     end
   end
 
+=begin
   def show_by_location
     @user= User.by_distance(:origin => current_user.postcode)
   end
@@ -30,6 +29,7 @@ class UsersController < ApplicationController
   def show_by_rating
     @users User.average_rating.order("created_at ASC")
   end
+=end
 
   def temp_user_created
     session[:user_postcode]=params[:user][:postcode]
@@ -50,7 +50,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    p params
     @user = User.find(params[:id])
   end
 

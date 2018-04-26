@@ -28,7 +28,7 @@
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
       }).addTo(mymap);
-    L.circle([<%="#{@user.location_lat},#{@user.location_lon}],#{(@user.range_to||50)*1000}"%>,{color: '#FF0000'}).addTo(mymap)
+    L.circle([<%="#{@user.location_lat},#{@user.location_lon}],#{(@user.range_to||50)*1000}"%>,{color: '#FF0000'}).bindTooltip('Area served by <%=@user.name%>').addTo(mymap)
     var goChefIcon = L.icon({
       iconUrl: '/gochef_logo.png',
       iconSize:     [38, 95], 
@@ -40,7 +40,7 @@
     $(".photos").click(function() {
     window.open(this.nextElementSibling.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
     });
-    
+       
 </script>
     <p class ="title"><%= @user.name %></p>
     <br>

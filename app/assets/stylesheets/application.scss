@@ -195,11 +195,12 @@ textarea{
 
 .button:hover {opacity: 0.95}
 
-/*.link_to_sign_in {
+.link_to_sign_in {
    color: $black-button;
     background-color: white;
     border: 1px $gray solid;
-}*/
+    border-radius: 3px
+}
 
 
 

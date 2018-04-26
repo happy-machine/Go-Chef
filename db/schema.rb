@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423124411) do
+ActiveRecord::Schema.define(version: 20180425163856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180423124411) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.integer "user_id"
+    t.integer "review_id"
+    t.index ["review_id"], name: "index_images_on_review_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 
@@ -35,6 +37,9 @@ ActiveRecord::Schema.define(version: 20180423124411) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "image_id"
+    t.string "reviewer_name"
+    t.index ["image_id"], name: "index_reviews_on_image_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -64,10 +69,14 @@ ActiveRecord::Schema.define(version: 20180423124411) do
     t.string "avatar"
     t.integer "range_to"
     t.integer "rating"
+    t.boolean "is_chef?"
+    t.boolean "is_a_chef"
+    t.string "postcode"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "ratings", "users"
+  add_foreign_key "reviews", "images"
   add_foreign_key "reviews", "users"
 end

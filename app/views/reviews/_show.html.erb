@@ -1,21 +1,22 @@
-      <div class="review">
-        <% @user.reviews.each do |review| %>
-        <div class="c">
-          <%= review.comment %> 
-          <div class = "rating">
-            <%= review.rating %>
-            <% 5.times do |i|%>
-               <% if review.rating > i %>
-                 <%= fa_icon "spoon"%> 
-               <% else %>
-                  <!--<%= "<i class='fa fa-star'></i>" %> -->
-               <% end %>
-              <% end %>
-
-
-            <br>
-            <%= review.created_at %>
-          </div>
-        </div>
-        <% end %>
-      </div>
+<div class="review">
+       <% @user.reviews.each do |review| %>
+       <div class="c">
+         <%= simple_format(review.comment) %>
+          <div class="rating">
+               <% 5.times do |i|%>
+                  <% if review.rating && i && review.rating > i %>
+                    <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon"), user_path(@user))%>
+                      <% else %>
+                       <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon_empty"), user_path(@user))%>
+                             <% end %>
+                           <% end %>
+                           <div class="created_at"> <%=  "#{review.created_at.to_s.chomp('UTC')} by #{review.reviewer_name}" %></div>
+                           </div>
+                       </div>
+           <br>
+           <!--switched off temporarily, cant seem to get font smaller that 12?
+          <div class="created_at"> <%= review.created_at %></div>
+         </div>
+         -->
+          <% end %>
+       </div>

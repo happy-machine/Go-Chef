@@ -8,9 +8,9 @@ class ReviewsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    userid = @user.id
-    @reviews = Review.where("user_id = #{userid}")
-     @review = Review.new(:user_id => @user.id)
+    @user_type = guest_user ? :guest : :registered
+    @reviews = Review.where("user_id = #{@user.id}")
+    @review = Review.new(:user_id => @user.id)
     # binding.pry
   end
 
@@ -20,12 +20,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    p params
     @user = User.find(params[:user_id])
     @review = @user.reviews.new(review_params)
-    # binding.pry
+    @review.reviewer_name = current_user.name
     if @review.save
       redirect_to(user_path(@user))
     else
+      flash[:error]="**Error saving review**"
       render('users#show')
     end
   end

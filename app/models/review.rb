@@ -1,10 +1,10 @@
 class Review < ApplicationRecord
   belongs_to :user
-  has_many :images
+  belongs_to :image, optional: true
 
+  after_initialize :init
 
-  #   def average_rating 
-  #   reviews.rating.map(&:rating).sum/rating.count
-    
-  # end
+  def init
+    self.rating  ||= 1   
+  end
 end

@@ -5,10 +5,12 @@ class UsersController < ApplicationController
   def index
     puts "name!"
     p current_user.name
-    if current_user.name=="guest"
+    if current_user.name=="guest" && session[:user_type]!='guest' && session[:user_type]!='registered'
       @current_user=guest_user
       session[:user_type]="guest"
       render 'welcome'
+    elsif session[:user_type]!='registered'
+      @current_user=current_user
     else
       @current_user=current_user
       session[:user_type]="registered"

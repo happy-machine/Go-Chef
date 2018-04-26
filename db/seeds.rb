@@ -22,9 +22,11 @@ User.create!(users)
 images = [
     {image: Rails.root.join("db/seed_images/download.jpeg").open},
     {image: Rails.root.join("db/seed_images/download1.jpeg").open},
-    {image: Rails.root.join("db/seed_images/download1.jpeg").open},
-    {image: Rails.root.join("db/seed_images/download1.jpeg").open},
-    {image: Rails.root.join("db/seed_images/download.jpeg").open}
+    {image: Rails.root.join("db/seed_images/download2.jpeg").open},
+    {image: Rails.root.join("db/seed_images/images1.jpeg").open},
+    {image: Rails.root.join("db/seed_images/images2.jpeg").open},
+    {image: Rails.root.join("db/seed_images/images3.jpeg").open},
+    {image: Rails.root.join("db/seed_images/images.jpeg").open}
  ]
 
 
@@ -44,22 +46,22 @@ avatars = [
 
 
 reviews = [
-   {user_id: 1, rating: 2, comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
-   {user_id: 1, rating: 4, comment: 'At the end of the day, though, Chef is successful in fulfilling its ambitions - offering a pleasant meal.'},
-   {user_id: 2, rating: 5, comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
-   {user_id: 2, rating: 3, comment: 'If only I didnt have end this review by talking about how all those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
-   {user_id: 2, rating: 5, comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
-   {user_id: 3, rating: 1, comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
-   {user_id: 4, rating: 3, comment: 'Everything was amazing, food, stuff, service. I recommend everyone to visit'},
-   {user_id: 1, rating: 4, comment: 'If you love chicken then this is the perfect place for you. Staff are always friendly and you can taylor make your meal. It isnt somewhere I would recommend for a romantic meal'},
-   {user_id: 6, rating: 2, comment: 'Meal was great ,service was poor ,just showen to table not asked if been before ,meal took over 25 mins to get to us ,not that busy'},
-   {user_id: 7, rating: 5, comment: 'Had lovely family meal, children must of coloured in about 30 chicken masks. Good food and children entertained could not ask for any more'},
-   {user_id: 8, rating: 1, comment: 'There were 3 surprises. The place is much bigger inside than it looks from the outside The staff were very helpful and pleasant much more so than you would perhaps expect in a fast food restaurant'},
-   {user_id: 8, rating: 5, comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
-   {user_id: 6, rating: 1, comment: 'Chef is successful in fulfilling its ambitions - offering a pleasant meal.'},
-   {user_id: 1, rating: 1, comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
-   {user_id: 5, rating: 4, comment: 'I have to say those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
-   {user_id: 5, rating: 3, comment: 'Very good, with food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'}
+   {user_id: 1, rating: 2, reviewer_name: 'Bob Pickering', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
+   {user_id: 1, rating: 4, reviewer_name: 'Emile Burton',comment: 'At the end of the day, though, Chef is successful in fulfilling its ambitions - offering a pleasant meal.'},
+   {user_id: 2, rating: 5, reviewer_name: 'Bob Pickering', comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
+   {user_id: 2, rating: 3, reviewer_name: 'Jimmy Bo', comment: 'If only I didnt have end this review by talking about how all those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
+   {user_id: 2, rating: 5, reviewer_name: 'James Fappy', comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
+   {user_id: 3, rating: 1, reviewer_name: 'Mangu', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
+   {user_id: 4, rating: 3, reviewer_name: 'Bob Pickering', comment: 'Everything was amazing, food, stuff, service. I recommend everyone to visit'},
+   {user_id: 1, rating: 4, reviewer_name: 'Jil Ester', comment: 'If you love chicken then this is the perfect place for you. Staff are always friendly and you can taylor make your meal. It isnt somewhere I would recommend for a romantic meal'},
+   {user_id: 6, rating: 2, reviewer_name: 'Mangu',comment: 'Meal was great ,service was poor ,just showen to table not asked if been before ,meal took over 25 mins to get to us ,not that busy'},
+   {user_id: 7, rating: 5, reviewer_name: 'Bob Pickering', comment: 'Had lovely family meal, children must of coloured in about 30 chicken masks. Good food and children entertained could not ask for any more'},
+   {user_id: 8, rating: 1, reviewer_name: 'Scarface', comment: 'There were 3 surprises. The place is much bigger inside than it looks from the outside The staff were very helpful and pleasant much more so than you would perhaps expect in a fast food restaurant'},
+   {user_id: 8, rating: 5, reviewer_name: 'Barry Symes', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
+   {user_id: 6, rating: 1, reviewer_name: 'Dj Fresh', comment: 'Chef is successful in fulfilling its ambitions - offering a pleasant meal.'},
+   {user_id: 1, rating: 1, reviewer_name: 'Bill', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
+   {user_id: 5, rating: 4, reviewer_name: 'James', comment: 'I have to say those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
+   {user_id: 5, rating: 3, reviewer_name: 'Scarface', comment: 'Very good, with food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'}
 ]
 
 Review.create!(reviews)

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   enum status: [:rating]
   has_many :reviews, -> { order(created_at: :desc) }
   has_many :ratings
-  has_many :images, :
+  has_many :images
 
   after_initialize :init
 

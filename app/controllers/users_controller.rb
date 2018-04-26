@@ -44,7 +44,6 @@ class UsersController < ApplicationController
     else
       user_status = :guest
     end
-    @user.sort_by_location session[:user_postcode],user_status
     @reviews = Review.where("user_id = #{@user.id}").order("created_at ASC")
     @review = Review.new
   end

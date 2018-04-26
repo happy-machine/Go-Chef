@@ -3,21 +3,18 @@
         <div class="c">
           <%= review.comment %> 
           <div class = "rating">
-<!--             <%= review.rating %>
- -->            <% 5.times do |i|%>
+            <%= review.rating %>
+            <% 5.times do |i|%>
                <% if review.rating > i %>
-                 <%= fa_icon "star"%> 
+                 <%= fa_icon "spoon"%> 
                <% else %>
-                  <%=  fa_icon "star", :class => "empty" %> 
+                  <!--<%= "<i class='fa fa-star'></i>" %> -->
                <% end %>
               <% end %>
-               <br>
 
 
             <br>
-            <div class = "empty" > 
             <%= review.created_at %>
-            </div>
           </div>
         </div>
         <% end %>

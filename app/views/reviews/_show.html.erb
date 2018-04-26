@@ -9,7 +9,7 @@
                      <%= fa_icon "spoon", class: "fa-1x", class: "spoon" %> 
                               <% end %>
                             <% end %><br><br>
-                            <div class="created_at"> <%=  "#{review.created_at} by #{User.find(review.user_id).name}" %></div>
+                            <div class="created_at"> <%=  "#{review.created_at.to_s.chomp('UTC')} by #{review.reviewer_name}" %></div>
                             </div>
                         </div>
             <br>

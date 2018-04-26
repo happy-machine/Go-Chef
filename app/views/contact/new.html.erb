@@ -1,0 +1,15 @@
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+     <div class="page form">
+     <h2>Send a message to <%= @user.name %></h2><br>
+  <%= form_tag '/users/'+@user.id.to_s+'/contact' do%>
+subject: </br><%= text_field_tag 'subject', ''%></br>
+Body:<%= text_area_tag 'body', ''%>
+<%= submit_tag "submit",:value => "submit"%>
+<%end%>
+
+</div>
+
+   
+

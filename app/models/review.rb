@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :image
+  belongs_to :image, optional: true
 
   after_initialize :init
 

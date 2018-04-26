@@ -4,13 +4,14 @@
         <div class="chef-list">
             <%= link_to "#{user.name}", user_path(user) %>
                 <button class="button show">
-                    <%= link_to "Show", user_path(user, :id => user.id)%>
+                    <%= link_to "Show", user_path(user)%>
                 </button>
                 <div class="ratings_bar">
                 <% 5.times do |i|%>
                    <% if user.average_rating != nil && i && user.average_rating > i %>
                      <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon"), user_path(user, :id => user.id))%> 
                        <% else %>
+                        <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon_empty"), user_path(user, :id => user.id))%> 
                          <!--<%= link_to(raw("<i class='fa fa-star'></i>"), user_path(user, :id => user.id)) %> -->
                               <% end %>
                             <% end %>

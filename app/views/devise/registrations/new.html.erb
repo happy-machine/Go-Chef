@@ -6,6 +6,7 @@
       <%= f.label :name %><br />
       <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
+    
     <div class="field">
       <%= f.label "Are you a chef?"%><br />
       <%= f.check_box :is_a_chef %> <br />
@@ -14,6 +15,7 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
+    <div id='chef_fields'>
     <div class="field">
       <%= f.label "Maximum Party Size" %><br />
       <%= f.text_field :max_party_size, autofocus: true, autocomplete: "5" %>
@@ -21,6 +23,7 @@
     <div class="field">
       <%= f.label "Average price per head (£)"%><br />
       <%= f.text_field :price_per_head, autofocus: true, autocomplete: "50" %>
+    </div>
     </div>
     <div class="field">
       <%= f.label :password %>
@@ -38,3 +41,9 @@
     </div>
   <% end %>
 </div>
+<script>
+$('#chef_fields').hide()
+$('#user_is_a_chef').click(()=>{
+$('#chef_fields').toggle()
+})
+</script>

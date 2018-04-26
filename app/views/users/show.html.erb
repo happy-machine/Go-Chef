@@ -44,9 +44,13 @@
 </script>
     <p class ="title"><%= @user.name %></p>
     <br>
-    <% if @user==current_user && user_signed_in? ||session[:test_mode] %>
+    <% if @user == current_user && user_signed_in? && session[:user_type] == "registered" %>
         <button class="button edit">
-          <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
+         <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
+        </button>
+    <% elsif session[:user_type] == "registered" %>
+        <button class="button edit">
+        <%= link_to("Contact", new_user_contact_path(@user) ) %> 
         </button>
       <% end %>
     <button class = "button back">
@@ -55,7 +59,7 @@
     <!--<div id="profile_bar"></div>-->
 <%= simple_format(@user.bio, class: "bio") %>
       <section class="reviews">
-        <% if user_signed_in? && @user!=current_user%>
+        <% if user_signed_in? && session[:user_type] == "registered" %>
         <%= render(:partial => 'reviews/review')%>
         <% else %>
         Sign in to leave a review.<br>

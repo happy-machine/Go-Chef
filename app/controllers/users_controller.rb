@@ -3,12 +3,15 @@ class UsersController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show] 
 
   def index
-    p params
-    if !user_signed_in? && session[:temp_user]==nil
-      temp_user = User.new(id:1000000)
-      temp_user.save
-      @current_user=temp_user
+    puts "name!"
+    p current_user.name
+    if current_user.name=="guest"
+      @current_user=guest_user
+      session[:user_type]="guest"
       render 'welcome'
+    else
+      @current_user=current_user
+      session[:user_type]="registered"
     end
     @users = User.all
     if params[:search]
@@ -18,10 +21,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def temp_user_created
+    session[:user_postcode]=params[:user][:postcode]
+    @users = User.all
+    render 'index'
+  end
+
   def show
-    @user = User.find(params[:id]) || session[:temp_user]
-    userid = @user.id
-    @reviews = Review.where("user_id = #{userid}").order("created_at ASC")
+    @user = User.find(params[:id]) || guest_user
+    if user_signed_in?
+      user_status = :signed_in 
+    else
+      user_status = :guest
+    end
+    @user.sort_by_location session[:user_postcode],user_status
+    @reviews = Review.where("user_id = #{@user.id}").order("created_at ASC")
     @review = Review.new
   end
 
@@ -55,7 +69,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:email, :bio, :avatar, :user_id, :range_to, :location_lat, :location_lon, :search, :is_a_chef, :max_party_size, :price_per_head)
+      params.require(:user).permit(:email, :bio, :avatar, :user_id, :range_to, :location_lat, :location_lon, :search, :is_a_chef, :max_party_size, :price_per_head, :postcode, :format)
     end
     def review_params
       params.require(:review).permit(:comment, :rating )

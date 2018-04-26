@@ -40,7 +40,7 @@ avatars = [
    
  ]
 
-Image.create!(images)
+#Image.create!(images)
 
 
 reviews = [
@@ -67,11 +67,13 @@ Review.create!(reviews)
 
 # seed user images
 User.all.each_with_index do |user,i|
-    Image.all.each do |image|
-        user.images << image
+    puts "Adding images to user #{user.id}"
+    images.each do |image|
+        #puts "Adding image #{image.id}"
+        user.images.create!(image)
     end
-p user
-   
+    user.avatar = avatars[i][:avatar]
+    user.save
 end
 
 # seed review image
@@ -80,3 +82,4 @@ Review.all.each do |review|
   review.image = Image.first
   review.save
 end
+

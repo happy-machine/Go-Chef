@@ -116,6 +116,7 @@ textarea{
   line-height: 150px;
 }
 
+
 .button,input[type="submit"]{
   padding: 0 10px 0 10px;
   min-width: 60px;
@@ -196,7 +197,6 @@ list of the chefs
 *****************/
 .index{
   display: grid;
-
   width: 100%;
   grid-template-columns: 30% 70%;
 }
@@ -206,6 +206,7 @@ list of the chefs
   padding-top: 300px;
   margin-top:30px;
 }
+//List of chefs
 .list{
   position:absolute;
   margin-top:150px;
@@ -303,6 +304,7 @@ input, select, textarea  {
     border-radius: 4px;
     box-sizing: border-box;
   }
+
 
 textarea{
       min-height: 100px;
@@ -474,6 +476,10 @@ p.title {
 
   color:red;
 }
+.spoon_empty{
+
+  color:rgba(184, 184, 184, 0.797);
+}
 #mapid{
   position:relative;
   height: 300px;
@@ -539,6 +545,7 @@ color:#ff0000;
     padding-bottom: 20px;
     background-color:$grey-gal;
   }
+  
  
   .pic_frame{
     position:relative;
@@ -583,4 +590,14 @@ color:#ff0000;
 
 
 
+
+  .rating_input{
+    display: block;
+   }
+   
+   .rating_input td{
+    width: 20%;
+    margin:10px;
+    text-align: center;
+   }
 

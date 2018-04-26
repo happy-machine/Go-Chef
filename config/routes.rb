@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :images
     resources :reviews
+    resources :contact
   end
 
 
@@ -11,7 +12,8 @@ Rails.application.routes.draw do
   root "users#index"
   get '/test_mode', to: 'users#test', as: 'test_mode'
   get '/welcome', to: 'users#welcome', as: 'welcome_form'
-  post '/welcome', to: 'users#index', as: 'welcome_post'
+  post '/welcome', to: 'users#temp_user_created', as: 'welcome_post'
+  
 
   # get '/users/:id/search', to: 'users#search', as: 'users_search'
   # get '/search', to: 

@@ -711,3 +711,28 @@ color:#ff0000;
 .fa .spoon{
   font-size: 1.6em;
 }
+
+.container{
+  grid-template-columns: 20% 80%;
+  display: grid;
+}
+
+.search{
+  margin: 30px;
+  padding-right: 10px;
+  margin-top: 125px;
+  grid-row-start: 1;
+  float: left;
+  width: 100%;
+  display: inline-block;
+  grid-column-start: 1;
+}
+.right{
+   grid-row-start: 1;
+  /*grid-column: 2;*/
+  grid-column-start: 2;
+
+  display: inline-block;
+  width: 100%;
+}
+

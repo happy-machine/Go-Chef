@@ -658,6 +658,12 @@ color:#ff0000;
     text-align: center;
    }
 
+    .chef-list-profile img{
+     width: 110px;
+     height: 110px;
+
+   }
+
    .chef-list-profile {
       width: 110px;
       height: 110px;
@@ -668,6 +674,11 @@ color:#ff0000;
       overflow: hidden;
       border-radius: 50%;
       display: inline-block;
+
+
+
+   /*   background-image: url(<%= asset_path 'cv5.png' %>);
+      background-size: contain;*/
    }
 
     .chef-list-profile:hover {
@@ -676,10 +687,6 @@ color:#ff0000;
 
    }
 
-    .chef-list-profile img{
-     width: 110px;
-     height: 110px;
-   }
 
    .list-content{
     float: right;

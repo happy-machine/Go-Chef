@@ -1,5 +1,5 @@
-<div class = "cover">
- <%= render(:partial => 'users/welcome') %>
+<div class="cover">
+  <%= render(:partial => 'users/welcome') %>
 </div>
 
 <div class = "container">
@@ -9,13 +9,7 @@
       <% if user.is_a_chef %>
           <div class="chef-list">
             <div class="chef-list-profile">
-              <% if user.avatar.file %>
-                <%= image_tag user.avatar.url%>
-              <% else %>
-                <%= image_tag "no-image.jpg"%>
-              <% end %>
-
-
+              <div class="small-avatar" style="background-image: url(<%= user.avatar.file ? user.avatar.url : "no-image.jpg" %>)"></div>
 
             </div>
             <div class="list-content">

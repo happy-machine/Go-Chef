@@ -1,8 +1,12 @@
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+
 <div class="userpage">
-  <div>
+
+
+  <!-- chef title -->
   <div class ="profile_title"> 
    <div class ="sub_header">
       Maximum party size: <%= @user.max_party_size %><br>
@@ -15,17 +19,15 @@
   </div>
   <div class ="profile">     
     <% if @user.avatar.file %>
-        <%= image_tag @user.avatar.url%>
-      <% else %>
-        <%= image_tag "no-image.jpg"%>
+      <%= image_tag @user.avatar.url%>
+    <% else %>
+      <%= image_tag "no-image.jpg"%>
     <% end %>
   </div>
-<div id="mapid"></div>
-<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
-<script type="text/javascript">
-
+  <div id="mapid"></div>
+  <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+  <script type="text/javascript">
     var mymap = L.map('mapid').setView([<%="#{@user.location_lat},#{@user.location_lon}"%>],6);
-
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         maxZoom: 18,
         zoomControl: false,
@@ -66,11 +68,6 @@
         <% if @current_user.name != "guest" %>
         <%= render(:partial => 'reviews/review')%>
         <% else %>
-
-        <button class = "link_to_sign_in">
-            <%= link_to "Sign in to leave a review", new_user_session_path %>
-          </button>
-
         <br>
         <% end %>
         <%= render(:partial => 'reviews/show') %>

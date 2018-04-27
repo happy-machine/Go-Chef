@@ -1,27 +1,38 @@
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+
 <div class="userpage">
-  <div>
+
+
+  <!-- chef title -->
   <div class ="profile_title"> 
+
+
+  <!-- chef gallery -->
   <div id ="chef_gallery">
       <% @user.images.each do |i| %>
         <div class="photos" style="background-image: url(<%= i.image.url %>" id="<%=i.image.url%>"></div>
       <% end %>
   </div>
+
+
+  <!-- profile pic -->
   <div class ="profile">     
     <% if @user.avatar.file %>
-        <%= image_tag @user.avatar.url%>
-      <% else %>
-        <%= image_tag "no-image.jpg"%>
+      <%= image_tag @user.avatar.url%>
+    <% else %>
+      <%= image_tag "no-image.jpg"%>
     <% end %>
   </div>
-<div id="mapid"></div>
-<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
-<script type="text/javascript">
 
+
+  <!-- map -->
+  <div id="mapid"></div>
+  <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+  <script type="text/javascript">
     var mymap = L.map('mapid').setView([<%="#{@user.location_lat},#{@user.location_lon}"%>],6);
-
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         maxZoom: 18,
         zoomControl: false,
@@ -40,37 +51,43 @@
     $(".photos").click(function() {
     window.open(this.nextElementSibling.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
     });
-    
-</script>
-    <p class ="title"><%= @user.name %></p>
-    <br>
-    <% if @user == current_user && user_signed_in? && session[:user_type] == "registered" %>
-        <button class="button edit">
-         <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
+  </script>
+
+
+  <!-- chef title -->
+  <p class ="title"><%= @user.name %></p>
+  <br>
+  <% if @user == current_user && user_signed_in? && session[:user_type] == "registered" %>
+      <button class="button edit">
+        <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
+      </button>
+  <% elsif session[:user_type] == "registered" %>
+       <button class="button edit">
+          <%= link_to("Contact", new_user_contact_path(@user) ) %> 
         </button>
-    <% elsif session[:user_type] == "registered" %>
-        <button class="button edit">
-        <%= link_to("Contact", new_user_contact_path(@user) ) %> 
-        </button>
-      <% end %>
-    <button class = "button back">
-      <%= link_to("Back to the chefs", "/" ) %>
+  <% end %>
+
+
+  <!-- back button -->
+  <button class = "button back">
+    <%= link_to("Back to the chefs", "/" ) %>
+  </button>
+
+
+  <!--bio-->
+  <%= simple_format(@user.bio, class: "bio") %>
+  <section class="reviews">
+  <% if user_signed_in? && session[:user_type] == "registered" %>
+    <%= render(:partial => 'reviews/review')%>
+  <% else %>
+    <button class = "link_to_sign_in">
+        <%= link_to "Sign in to leave a review", new_user_session_path %>
     </button>
-    <!--<div id="profile_bar"></div>-->
-<%= simple_format(@user.bio, class: "bio") %>
-      <section class="reviews">
-        <% if user_signed_in? && session[:user_type] == "registered" %>
-        <%= render(:partial => 'reviews/review')%>
-        <% else %>
-
-        <button class = "link_to_sign_in">
-            <%= link_to "Sign in to leave a review", new_user_session_path %>
-          </button>
-
-        <br>
-        <% end %>
+    <br>
+  <% end %>
 
 
-        <%= render(:partial => 'reviews/show') %>
-      </section>
-  </div>
+  <!-- reviews -->
+  <%= render(:partial => 'reviews/show') %>
+    </section>
+</div>

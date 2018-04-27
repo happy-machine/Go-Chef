@@ -4,6 +4,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   <div class ="profile_title"> 
+   <div class ="sub_header">
+      Maximum party size: <%= @user.max_party_size %><br>
+      Price per head: <%= @user.price_per_head %>
+    </div>
   <div id ="chef_gallery">
       <% @user.images.each do |i| %>
         <div class="photos" style="background-image: url(<%= i.image.url %>" id="<%=i.image.url%>"></div>
@@ -38,7 +42,8 @@
     });
     L.marker([<%="#{@user.location_lat},#{@user.location_lon}"%>], {icon: goChefIcon}).addTo(mymap);
     $(".photos").click(function() {
-    window.open(this.nextElementSibling.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
+      console.log(this.id)
+    window.open(this.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
     });
        
 </script>
@@ -56,8 +61,7 @@
     <button class = "button back">
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
-    <!--<div id="profile_bar"></div>-->
-<%= simple_format(@user.bio, class: "bio") %>
+      <%= simple_format(@user.bio, class: "bio") %>
       <section class="reviews">
         <% if user_signed_in? && session[:user_type] == "registered" %>
         <%= render(:partial => 'reviews/review')%>
@@ -69,8 +73,6 @@
 
         <br>
         <% end %>
-
-
         <%= render(:partial => 'reviews/show') %>
       </section>
   </div>

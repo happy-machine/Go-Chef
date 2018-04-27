@@ -10,21 +10,13 @@ class Users::SessionsController < Devise::SessionsController
 
   #POST /resource/sign_in
   def create
-=begin
-    puts "session"
-    puts params[:user][:email]
-    current_user=User.find_by(email: params[:user][:email])
-    puts params
-    puts "and user"
-    p current_user
-    puts current_user.name
-    puts session[:user_type]
-=end
-    if session[:user_type]=="guest"
-      session[:user_type]="registered"
+    super
+    if session[:user_type] == "guest"
+      session[:user_type] = "registered"
+      #User.where(name: "guest").destroy_all
       redirect_to '/index'
     end
-     super
+  
   end
 
   # DELETE /resource/sign_out

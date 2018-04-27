@@ -56,7 +56,17 @@ h1{
  font-weight:100 ;
  margin-top: 80px;
 }
-
+.sub_header{
+  grid-column: 2 / 5;
+  grid-row-start: 2;
+  font-family: $h;
+  font-size: 1.1em;
+  font-weight: 100;
+  margin-top:7px;
+  margin-left:5px;
+  z-index: 100;
+  width:100%;
+}
 #logo_font{
   font-family: 'Baloo Bhai', cursive;
   color:white;
@@ -73,11 +83,12 @@ textarea{
   font-size: 15px;
   font-weight: 300;
 }
+
 .nav-bar{
     position: fixed;
     display: inline;
 /*    box-shadow: 2 2px 2px 0 rgba(54, 50, 57, 0.3);
-*/    z-index: 10000000;
+*/  z-index: 10000000;
     background-color: $red-material;
     height: 62px;
     width: 100%;
@@ -119,7 +130,6 @@ textarea{
   line-height: 67px;
 }
 
-
 .button,input[type="submit"]{
   padding: 0 10px 0 10px;
   min-width: 60px;
@@ -158,27 +168,24 @@ textarea{
       color: $black-button;
     }
   }
+
   &.show {
     background-color: #e8e6df;
     float: right;
     width: 75px;
   }
+
   &.show:hover {
- 
     /*background-color: rgb(254, 158, 14);*/
     float: right;
     width: 75px;
     display: block;
   }
-
-
-
  
     & a {
       color: $black-button;
       padding: 2px;
     }
-
 
 }
 
@@ -197,17 +204,14 @@ textarea{
 
 .link_to_sign_in {
    color: $black-button;
-    background-color: white;
+    /*background-color: white;*/
     border: 1px $gray solid;
     border-radius: 3px
 }
 
-
-
 .content {
   
 }
-
 
 /*
 list of the chefs
@@ -324,7 +328,6 @@ input, select, textarea  {
     box-sizing: border-box;
   }
 
-
 textarea{
       min-height: 100px;
     }
@@ -353,8 +356,6 @@ input[type="submit"]{
 .sign_up.actions {
     background-color: $black-button!important;
   }
-
-
 
 /*search*/
 
@@ -418,12 +419,14 @@ input[type="submit"]{
   }
 
 }
+
 #small_back {
   padding: 10px;
   background-color: $gray-button;
   color:white;
   border-radius: 4px;
 }
+
 .edit {
   background-color: $blue-button;
   text-align: centre;
@@ -472,27 +475,30 @@ input[type="submit"]{
             position: absolute;
             left: 50%;
             top: 50%;
-           /* height: 300px;*/
+           height: 100%;
             width: 100%;
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
 }
+
 #edit_image{
   align-self: center;
   width:100%;
 }
+
 p.title {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
   color: $black-button;
 }
+
 .bio {
   text-align: justify;
   grid-column: 2 / span 3;
   grid-column-start: 2;
-  grid-row-start: 2;
+  grid-row-start: 3;
   width: 100%;
   height: 250px;
   overflow: hidden;
@@ -505,10 +511,12 @@ line-height: 22px;
 
   color:red;
 }
+
 .spoon_empty{
 
   color:rgba(184, 184, 184, 0.797);
 }
+
 #mapid{
   position:relative;
   height: 300px;
@@ -543,10 +551,10 @@ color:#ff0000;
   width: 100%;
   grid-column: 1 / span 3;
   grid-column-start: 2;
-  grid-row-start: 4 / span 3;
+  grid-row-start: 5 / span 2;
   grid-row-end: 5;
   width: 100%;
-  margin-top:20px;
+  margin-top:120px;
   //overflow: scroll;
 
   &.review {
@@ -666,9 +674,7 @@ color:#ff0000;
    }
 
     .chef-list-profile:hover {
-
       border: 20 red solid;
-
    }
 
     .chef-list-profile img{
@@ -682,7 +688,7 @@ color:#ff0000;
    }
 
     .list-content button{
-      display: inline-block;
+    display: inline-block;
     float: left;
    }
 
@@ -692,17 +698,20 @@ color:#ff0000;
     font-size: 1.6em;
     padding-top: 10px;
    }
+
    .ratings_bar i{
     width: 8px;
    }
+
    .spoon_empty{
     color: $gray;
     font-size: 1.6em;
    }
+
   .spoon{
     color: $yellow-material;
     text-shadow: 1px 1px 1px #ccc;
-    font-size: 1.6em;
+    font-size: 1.5em;
    }
 
    .ratings_bar a{
@@ -710,5 +719,5 @@ color:#ff0000;
    }
 
 .fa .spoon{
-  font-size: 1.6em;
+  font-size: 1.5em;
 }

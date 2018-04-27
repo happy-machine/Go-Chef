@@ -21,7 +21,7 @@
         <% end %>
       </div>-->
       <div class="nav-links">
-           <% if user_signed_in? && session[:user_type]=="registered" %>
+           <% if user_signed_in? && session[:user_type]=="registered" && !User.find(session[:guest_user_id])%>
                 <button class="button blue_button">
                     <%=link_to(raw("<i class='fa fa-cog'></i>"), edit_user_path(current_user.id))%> 
                  </button>
@@ -34,6 +34,9 @@
            <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
           <% end %>
       </button>-->
+      <script>
+      console.log('<%=session[:user_type]%>')
+      </script>
         <% if user_signed_in? && session[:user_type] != "guest" %>
           <button class = "button sign_up">
             <%= link_to "sign out", destroy_user_session_path, method: :delete %>

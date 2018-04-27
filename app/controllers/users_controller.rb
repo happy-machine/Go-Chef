@@ -3,15 +3,12 @@ class UsersController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show] 
 
   def index
-    if current_user.name=="guest" && session[:user_type]!='guest' && session[:user_type]!='registered'
+    if current_user.name == "guest" && !session[:user_type]
       @current_user=guest_user
-      session[:user_type]="guest"
+      session[:user_type] = "guest"
       render 'welcome'
-    elsif session[:user_type]!='registered'
-      @current_user=current_user
-    else
-      @current_user=current_user
-      session[:user_type]="registered"
+    elsif session[:user_type] != 'registered'
+      @current_user = current_user
     end
     @users = User.all
     if params[:search]
@@ -23,7 +20,8 @@ class UsersController < ApplicationController
 
 =begin
   def show_by_location
-    @user= User.by_distance(:origin => current_user.postcode)
+    @user= User.by_distance(:origin => current_user.postcode).within(@user.range_to , :origin => current_user.postcode)
+    User.within(:bounds => [@sw, @ne], :origin => @somewhere)
   end
 
   def show_by_rating
@@ -54,7 +52,7 @@ class UsersController < ApplicationController
 
   def test
     session[:test_mode]= !session[:test_mode]
-    @testmode=session[:test_mode]
+    @testmode = session[:test_mode]
     render 'test'
   end
 

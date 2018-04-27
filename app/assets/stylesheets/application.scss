@@ -33,7 +33,7 @@ $grey-prof: #f7f7f7;
 $black-button: #353238;
 $p: 'Montserrat', sans-serif;
 $h: 'Roboto', sans-serif;
-
+$cream: #dddad3;
 
 
 *{
@@ -85,12 +85,12 @@ textarea{
 }
 
 .nav-bar{
-    position: fixed;
+    /*position: fixed;*/
     display: inline;
 /*    box-shadow: 2 2px 2px 0 rgba(54, 50, 57, 0.3);
-*/  z-index: 10000000;
-    background-color: $red-material;
-    height: 62px;
+*/    z-index: 10000000;
+/*    background-color: $red-material;
+*/    height: 62px;
     width: 100%;
     -webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
 
@@ -110,25 +110,28 @@ textarea{
 
 }
 .logo{
-  top:4px;
-  position:fixed;
-  float: left;  
-  width: 120px;
-  margin-left: 15px;
+  /* top: 4px; */
+  float: left;
+  width: 170px;
+/*  margin-top: -15px;
+*/  margin-left: 15px;
   padding: 5px 10px 0 0;
+  top: -15px;
   -webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
 }
 .nav-links {
-  top:0px;
-  right:10px;
-  position:fixed;
-  padding: 0px;
-  margin-right: 50px;
-  text-align: center;
-  display:inline-block;
-  vertical-align:top;
-  line-height: 67px;
-}
+    top: 0px;
+    right: 10px;
+    float: right;
+    /* position: fixed; */
+    padding: 0px;
+    margin-right: 50px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 67px;
+    margin-top: 25px;
+  }
 
 .button,input[type="submit"]{
   padding: 0 10px 0 10px;
@@ -161,8 +164,9 @@ textarea{
   }
 
   &.sign_in{
-    background-color: $white-light;
+    background-color: $cream;
     grid-column: 3;
+    min-width: 90px;
 
     & a {
       color: $black-button;
@@ -209,9 +213,9 @@ textarea{
     border-radius: 3px
 }
 
-.content {
-  
-}
+/*.content {
+  height: 100px;
+}*/
 
 /*
 list of the chefs
@@ -229,7 +233,7 @@ list of the chefs
 }
 //List of chefs
 .list{
-  position:absolute;
+  /*position:absolute;*/
   margin-top:115px;
   margin-left:25px;
 }
@@ -302,16 +306,16 @@ pages style
 }
 
 .userpage {
-/*  overflow: -webkit-paged-y;
-*/  display:inline-block;
-  padding: 30px;
-  margin-top: 135px;
-  width: 93%;
-  color: $black-button;
-  background-color: white;
-  margin-left:3%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  overflow: scroll;
+/*    overflow: -webkit-paged-y; 
+*/    display: inline-block;
+    padding: 30px;
+    margin-top: 25px;
+    width: 93%;
+    color: #353238;
+    background-color: white;
+    margin-left: 3%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    overflow: auto;
   
 }
 
@@ -394,7 +398,7 @@ input[type="submit"]{
 .profile_title  {
   display: grid;
   width: 95%;
-  grid-template-columns: 40% 27% 11% 20%;
+  grid-template-columns: 34% 33% 13% 18%;
   grid-template-rows: 50px 50px 160px 300px 400px;
   grid-gap: 20px; 
 
@@ -443,6 +447,7 @@ input[type="submit"]{
 }
 
 #chef_gallery{
+  margin-top: 25px;
   width: 100%;
   padding:10px;
   /*background-color: $grey-gal;*/
@@ -519,6 +524,7 @@ line-height: 22px;
 
 #mapid{
   position:relative;
+  margin-top: 20px;
   height: 300px;
   width: 100%;
   grid-column: 1 / span 1;
@@ -721,3 +727,102 @@ color:#ff0000;
 .fa .spoon{
   font-size: 1.5em;
 }
+
+.container{
+  grid-template-columns: 20% 80%;
+  display: grid;
+  margin-top: -110px;
+}
+
+.search{
+  margin: 30px;
+  padding-right: 10px;
+  margin-top: 125px;
+  grid-row-start: 1;
+  float: left;
+  width: 100%;
+  display: inline-block;
+  grid-column-start: 1;
+}
+.right{
+   grid-row-start: 1;
+  /*grid-column: 2;*/
+  grid-column-start: 2;
+
+  display: inline-block;
+  width: 100%;
+}
+
+.cover { 
+  width: 100%;
+  /* background-image: linear-gradient(to bottom right,#002f4b,#dc4225); */
+  background-image: url(cv5.png);
+  background-position: center;
+  height: 670px;
+  /*margin-top: 29px;*/
+  /* background-size: 300px 100px; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: contain;
+  /* background-attachment: fixed; */
+  background-repeat: no-repeat;
+}
+
+.welcome {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    background-color: $cream;
+    height: 90px;
+    top: 305px;
+    /* margin-top: 315px; */
+    position: absolute;
+    left: 25%;
+/*  opacity: 0.8;
+*/
+ -webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+     border-radius: 6px;
+}
+
+.sb-search {
+  position: relative;
+  /*margin-top: 10px;*/
+
+
+}
+
+.sb-search-input {
+    display: inline-block;
+    float: left;
+    top: 7;
+    margin-left: 6px;
+    border: none;
+    outline: none;
+    background: white;
+    width: 78%;
+    height: 50px;
+    margin-top: 10px;
+    z-index: 10;
+    padding: 20px 65px 20px 20px;
+    font-family: inherit;
+    /* font-size: 20px; */
+    color: #2c3e50;
+    border-radius: 0;
+  }
+
+
+.welcome .sb-search-submit {
+    height: 50px !important;
+    background-color: #f4791b;
+    /* position: absolute; */
+    /* float: left; */
+    width: 20%;
+    /* line-height: initial; */
+    top: 38px;
+    margin-top: 10px;
+    border-radius: 0;
+
+}
+
+

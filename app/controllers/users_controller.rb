@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if current_user.name=="guest" && session[:user_type]!='guest' && session[:user_type]!='registered'
       @current_user=guest_user
       session[:user_type]="guest"
-      render 'welcome'
+      render '_welcome'
     elsif session[:user_type]!='registered'
       @current_user=current_user
     else

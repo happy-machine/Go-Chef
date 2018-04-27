@@ -8,17 +8,15 @@
 
   <!-- chef title -->
   <div class ="profile_title"> 
-
-
-  <!-- chef gallery -->
+   <div class ="sub_header">
+      Maximum party size: <%= @user.max_party_size %><br>
+      Price per head: <%= @user.price_per_head %>
+    </div>
   <div id ="chef_gallery">
       <% @user.images.each do |i| %>
         <div class="photos" style="background-image: url(<%= i.image.url %>" id="<%=i.image.url%>"></div>
       <% end %>
   </div>
-
-
-  <!-- profile pic -->
   <div class ="profile">     
     <% if @user.avatar.file %>
       <%= image_tag @user.avatar.url%>
@@ -26,9 +24,6 @@
       <%= image_tag "no-image.jpg"%>
     <% end %>
   </div>
-
-
-  <!-- map -->
   <div id="mapid"></div>
   <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
   <script type="text/javascript">
@@ -39,7 +34,7 @@
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoidGhvbWFzY2FsbHVtYnJvb2siLCJhIjoiY2pnNm9hOTUxMjlyNjJ3b2gybXl2OGpvNSJ9.6FSzBSK3H6063Afj38PSIQ'
       }).addTo(mymap);
-    L.circle([<%="#{@user.location_lat},#{@user.location_lon}],#{(@user.range_to||50)*1000}"%>,{color: '#FF0000'}).addTo(mymap)
+    L.circle([<%="#{@user.location_lat},#{@user.location_lon}],#{(@user.range_to||50)*1000}"%>,{color: '#FF0000'}).bindTooltip('Area served by <%=@user.name%>').addTo(mymap)
     var goChefIcon = L.icon({
       iconUrl: '/gochef_logo.png',
       iconSize:     [38, 95], 
@@ -49,45 +44,32 @@
     });
     L.marker([<%="#{@user.location_lat},#{@user.location_lon}"%>], {icon: goChefIcon}).addTo(mymap);
     $(".photos").click(function() {
-    window.open(this.nextElementSibling.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
+      console.log(this.id)
+    window.open(this.id, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes')
     });
-  </script>
-
-
-  <!-- chef title -->
-  <p class ="title"><%= @user.name %></p>
-  <br>
-  <% if @user == current_user && user_signed_in? && session[:user_type] == "registered" %>
-      <button class="button edit">
-        <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
-      </button>
-  <% elsif session[:user_type] == "registered" %>
-       <button class="button edit">
-          <%= link_to("Contact", new_user_contact_path(@user) ) %> 
-        </button>
-  <% end %>
-
-
-  <!-- back button -->
-  <button class = "button back">
-    <%= link_to("Back to the chefs", "/" ) %>
-  </button>
-
-
-  <!--bio-->
-  <%= simple_format(@user.bio, class: "bio") %>
-  <section class="reviews">
-  <% if user_signed_in? && session[:user_type] == "registered" %>
-    <%= render(:partial => 'reviews/review')%>
-  <% else %>
-    <button class = "link_to_sign_in">
-        <%= link_to "Sign in to leave a review", new_user_session_path %>
-    </button>
+       
+</script>
+    <p class ="title"><%= @user.name %></p>
     <br>
-  <% end %>
-
-
-  <!-- reviews -->
-  <%= render(:partial => 'reviews/show') %>
-    </section>
-</div>
+    <% if @user == current_user %>
+        <button class="button edit">
+         <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
+        </button>
+    <% elsif session[:user_type] == "registered" %>
+        <button class="button edit">
+        <%= link_to("Contact", new_user_contact_path(@user) ) %> 
+        </button>
+      <% end %>
+    <button class = "button back">
+      <%= link_to("Back to the chefs", "/" ) %>
+    </button>
+      <%= simple_format(@user.bio, class: "bio") %>
+      <section class="reviews">
+        <% if @current_user.name != "guest" %>
+        <%= render(:partial => 'reviews/review')%>
+        <% else %>
+        <br>
+        <% end %>
+        <%= render(:partial => 'reviews/show') %>
+      </section>
+  </div>

@@ -3,13 +3,7 @@ class UsersController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show] 
 
   def index
-    if current_user.name == "guest" && !session[:user_type]
-      @current_user=guest_user
-      session[:user_type] = "guest"
-      render 'welcome'
-    elsif session[:user_type] != 'registered'
-      @current_user = current_user
-    end
+    @current_user=current_user
     @users = User.all
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
@@ -29,24 +23,23 @@ class UsersController < ApplicationController
   end
 =end
 
-  def temp_user_created
+  def postcode_added
+    @current_user = current_user
     session[:user_postcode]=params[:user][:postcode]
     @users = User.all
     render 'index'
   end
 
   def show
+    @image=Image
     @user = User.find(params[:id]) || guest_user
-    if user_signed_in?
-      user_status = :signed_in 
-    else
-      user_status = :guest
-    end
+    @current_user = current_user
     @reviews = Review.where("user_id = #{@user.id}").order("created_at ASC")
     @review = Review.new
   end
 
   def edit
+    @current_user = current_user
     @user = User.find(params[:id])
   end
 
@@ -57,6 +50,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @current_user = current_user
     @user = User.find(params[:id])
     if @user == current_user || session[:test_mode]==true
       @user.update_attributes(user_params)

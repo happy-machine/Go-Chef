@@ -49,7 +49,7 @@
 </script>
     <p class ="title"><%= @user.name %></p>
     <br>
-    <% if @user == current_user && user_signed_in? && session[:user_type] == "registered" %>
+    <% if @user == current_user %>
         <button class="button edit">
          <%= link_to("My Gallery", new_user_image_path(@user) ) %> 
         </button>
@@ -63,7 +63,7 @@
     </button>
       <%= simple_format(@user.bio, class: "bio") %>
       <section class="reviews">
-        <% if user_signed_in? && session[:user_type] == "registered" %>
+        <% if @current_user.name != "guest" %>
         <%= render(:partial => 'reviews/review')%>
         <% else %>
 

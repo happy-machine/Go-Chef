@@ -21,6 +21,9 @@
         <h1>o Chef</h1>
       </div> 
       -->
+       <script>
+      console.log('<%=session[:user_type]%>')
+      </script>
       <div class="nav-links">
        <button class = "button sign_up">
        <% if session[:test_mode] %>
@@ -29,7 +32,7 @@
              <%= link_to "test mode", test_mode_path,{:style=>'color:#000000;'}%>
              <% end %>
           </button>
-        <% if user_signed_in? && session[:user_type] != "guest" %>
+        <% if @current_user != "guest" %>
           <button class = "button sign_up">
             <%= link_to "sign out", destroy_user_session_path, method: :delete %>
           </button>

@@ -9,15 +9,13 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   #POST /resource/sign_in
-  def create
-    super
-    if session[:user_type] == "guest"
-      session[:user_type] = "registered"
-      #User.where(name: "guest").destroy_all
-      redirect_to '/index'
-    end
+  #def create
   
-  end
+      
+      #redirect_to '/index'
+   
+  
+  #end
 
   # DELETE /resource/sign_out
   # def destroy

@@ -26,7 +26,14 @@ images = [
     {image: Rails.root.join("db/seed_images/images1.jpeg").open},
     {image: Rails.root.join("db/seed_images/images2.jpeg").open},
     {image: Rails.root.join("db/seed_images/images3.jpeg").open},
-    {image: Rails.root.join("db/seed_images/images.jpeg").open}
+    {image: Rails.root.join("db/seed_images/images.jpeg").open},
+    {image: Rails.root.join("db/seed_images/food1.jpg").open},
+    {image: Rails.root.join("db/seed_images/food2.jpg").open},
+    {image: Rails.root.join("db/seed_images/food3.jpg").open},
+    {image: Rails.root.join("db/seed_images/food4.jpg").open},
+    {image: Rails.root.join("db/seed_images/food5.jpg").open},
+    {image: Rails.root.join("db/seed_images/food6.jpeg").open},
+    {image: Rails.root.join("db/seed_images/food7.jpeg").open}
  ]
 
 
@@ -80,8 +87,8 @@ end
 
 # seed review image
 
-Review.all.each do |review|
-  review.image = Image.first
+Review.all.each_with_index do |review,i|
+  review.image = Image.find(i+5)
   review.save
 end
 

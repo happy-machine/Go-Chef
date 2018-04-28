@@ -62,14 +62,16 @@
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
       <div class="bio">
-        <%= simple_format(@user.bio) %>
+        <%= @user.bio.gsub(/\n/, '<br>') %>
           <section class="reviews">
+          <div class="review">
              <% if @current_user.name != "guest" && @user != @current_user %>
-              <%= render(:partial => 'reviews/review')%>
+              <%= render(:partial => 'reviews/review')%></br>
               <% else %>
               <br>
               <% end %>
               <%= render(:partial => 'reviews/show') %>
+              </div>
               </section>
       </div>
   </div>

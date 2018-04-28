@@ -26,14 +26,7 @@ images = [
     {image: Rails.root.join("db/seed_images/images1.jpeg").open},
     {image: Rails.root.join("db/seed_images/images2.jpeg").open},
     {image: Rails.root.join("db/seed_images/images3.jpeg").open},
-    {image: Rails.root.join("db/seed_images/images.jpeg").open},
-    {image: Rails.root.join("db/seed_images/food1.jpg").open},
-    {image: Rails.root.join("db/seed_images/food2.jpg").open},
-    {image: Rails.root.join("db/seed_images/food3.jpg").open},
-    {image: Rails.root.join("db/seed_images/food4.jpg").open},
-    {image: Rails.root.join("db/seed_images/food5.jpg").open},
-    {image: Rails.root.join("db/seed_images/food6.jpeg").open},
-    {image: Rails.root.join("db/seed_images/food7.jpeg").open}
+    {image: Rails.root.join("db/seed_images/images.jpeg").open}
  ]
 
 
@@ -42,22 +35,22 @@ images = [
 
 
 reviews = [
-   {user_id: 1, rating: 2, reviewer_name: 'Bob Pickering', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
-   {user_id: 1, rating: 4, reviewer_name: 'Emile Burton',comment: 'This guy is a legend, I\'d love to try his food!.'},
-   {user_id: 2, rating: 5, reviewer_name: 'Bob Pickering', comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
-   {user_id: 2, rating: 3, reviewer_name: 'Jimmy Bo', comment: 'If only I didnt have to end this review by talking about how all those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
-   {user_id: 2, rating: 5, reviewer_name: 'James Fappy', comment: "A really awesome menu, went above and beyond our expectations. Thoroughly recommended and deserving of every penny. A wonderful evening was had by all!"},
-   {user_id: 3, rating: 1, reviewer_name: 'Mangu', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
-   {user_id: 4, rating: 3, reviewer_name: 'Bob Pickering', comment: "Everything was amazing, food, stuff, service. I would thoroughly recommend to everyone."},
-   {user_id: 1, rating: 1, reviewer_name: 'Jil Ester', comment: 'I have high expectations when it comes to catering, and though the food was good it wasnt great, considering the price'},
-   {user_id: 6, rating: 2, reviewer_name: 'Mangu',comment: 'Meal was great but i wasnt impressed with the service overall'},
-   {user_id: 7, rating: 5, reviewer_name: 'Bob Pickering', comment: 'Had lovely family meal, children must of coloured in about 30 chicken masks. Good food and children entertained could not ask for any more'},
-   {user_id: 8, rating: 1, reviewer_name: 'Scarface', comment: 'There were 3 surprises. The place is much bigger inside than it looks from the outside The staff were very helpful and pleasant much more so than you would perhaps expect in a fast food restaurant'},
-   {user_id: 8, rating: 5, reviewer_name: 'Barry Symes', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
-   {user_id: 6, rating: 5, reviewer_name: 'Dj Fresh', comment: 'Would recommend, 10 out of 10 x'},
-   {user_id: 1, rating: 1, reviewer_name: 'Bill', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
-   {user_id: 5, rating: 4, reviewer_name: 'James', comment: 'I have to say those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
-   {user_id: 5, rating: 3, reviewer_name: 'Scarface', comment: 'Very good, with food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'}
+   {avatar: Rails.root.join("db/seed_images/food1.jpg").open, user_id: 1, rating: 2, reviewer_name: 'Bob Pickering', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
+   {avatar: Rails.root.join("db/seed_images/food2.jpg").open, user_id: 1, rating: 4, reviewer_name: 'Emile Burton',comment: 'This guy is a legend, I\'d love to try his food!.'},
+   {avatar: Rails.root.join("db/seed_images/food3.jpg").open, user_id: 2, rating: 5, reviewer_name: 'Bob Pickering', comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
+   {avatar: Rails.root.join("db/seed_images/food4.jpg").open, user_id: 2, rating: 3, reviewer_name: 'Jimmy Bo', comment: 'If only I didnt have to end this review by talking about how all those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
+   {avatar: Rails.root.join("db/seed_images/food5.jpg").open, user_id: 2, rating: 5, reviewer_name: 'James Fappy', comment: "A really awesome menu, went above and beyond our expectations. Thoroughly recommended and deserving of every penny. A wonderful evening was had by all!"},
+   {avatar: Rails.root.join("db/seed_images/food6.jpeg").open, user_id: 3, rating: 1, reviewer_name: 'Mangu', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},
+   {avatar: Rails.root.join("db/seed_images/food7.jpeg").open, user_id: 4, rating: 3, reviewer_name: 'Bob Pickering', comment: "Everything was amazing, food, stuff, service. I would thoroughly recommend to everyone."},
+   {avatar: Rails.root.join("db/seed_images/food1.jpg").open, user_id: 1, rating: 1, reviewer_name: 'Jil Ester', comment: 'I have high expectations when it comes to catering, and though the food was good it wasnt great, considering the price'},
+   {avatar: Rails.root.join("db/seed_images/food2.jpg").open, user_id: 6, rating: 2, reviewer_name: 'Mangu',comment: 'Meal was great but i wasnt impressed with the service overall'},
+   {avatar: Rails.root.join("db/seed_images/food3.jpg").open, user_id: 7, rating: 5, reviewer_name: 'Bob Pickering', comment: 'Had lovely family meal, children must of coloured in about 30 chicken masks. Good food and children entertained could not ask for any more'},
+   {avatar: Rails.root.join("db/seed_images/food4.jpg").open, user_id: 8, rating: 1, reviewer_name: 'Scarface', comment: 'There were 3 surprises. The place is much bigger inside than it looks from the outside The staff were very helpful and pleasant much more so than you would perhaps expect in a fast food restaurant'},
+   {avatar: Rails.root.join("db/seed_images/food5.jpg").open, user_id: 8, rating: 5, reviewer_name: 'Barry Symes', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
+   {avatar: Rails.root.join("db/seed_images/food6.jpeg").open, user_id: 6, rating: 5, reviewer_name: 'Dj Fresh', comment: 'Would recommend, 10 out of 10 x'},
+   {avatar: Rails.root.join("db/seed_images/food7.jpeg").open, user_id: 1, rating: 1, reviewer_name: 'Bill', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
+   {avatar: Rails.root.join("db/seed_images/food1.jpg").open, user_id: 5, rating: 4, reviewer_name: 'James', comment: 'I have to say those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
+   {avatar: Rails.root.join("db/seed_images/food2.jpg").open, user_id: 5, rating: 3, reviewer_name: 'Scarface', comment: 'Very good, with food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'}
 ]
 
 Review.create!(reviews)

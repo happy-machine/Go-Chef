@@ -71,8 +71,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :bio, :avatar, :user_id, :range_to, :location_lat, :location_lon, :search, :is_a_chef, :max_party_size, :price_per_head, :postcode, :format)
     end
-    def review_params
-      params.require(:review).permit(:comment, :rating )
-    end
 
 end

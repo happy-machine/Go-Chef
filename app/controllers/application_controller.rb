@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location_lat, :location_lon, :range_to, :is_a_chef, :max_party_size, :price_per_head] )
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location_lat, :location_lon, :range_to, :avatar, :is_a_chef, :max_party_size, :price_per_head] )
   end
 end

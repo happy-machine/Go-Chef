@@ -24,6 +24,16 @@
       <%= f.label "Average price per head (£)"%><br />
       <%= f.text_field :price_per_head, autofocus: true, autocomplete: "50" %>
     </div>
+     <div class="field">
+            <%= f.label "Cover Photo" %><br>
+            <%= f.file_field :avatar %>
+        </div>
+        <br>
+        <div class="avatar">
+            <% if @user.avatar.file? %>
+                <%= image_tag @user.avatar.url, id: "edit_image"%>
+            <% end %>
+        </div>
     </div>
     <div class="field">
       <%= f.label :password %>

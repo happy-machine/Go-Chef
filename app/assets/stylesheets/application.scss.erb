@@ -41,7 +41,7 @@ $cream: #dddad3;
   margin: 0;
   box-sizing: border-box;
   font-size: 1em;
-  color: $black-button;
+  //color: $black-button;
 }
 
 body{
@@ -131,6 +131,7 @@ textarea{
     vertical-align: top;
     line-height: 67px;
     margin-top: 25px;
+    color:white;
   }
 
 .button,input[type="submit"]{
@@ -234,7 +235,7 @@ list of the chefs
 //List of chefs
 .list{
   /*position:absolute;*/
-  margin-top:115px;
+  margin-top:10px;
   margin-left:25px;
 }
 
@@ -257,15 +258,16 @@ list of the chefs
 }
 
 [class ="chef-list"] {
-  min-width: 200px;
+  min-width: 300px;
   max-width: 400px;
+  max-height: 300px;
   width: 30%;
   color: $black-button;
   background-color: white;
   font-weight: 500;
   margin-top: 20px;
   margin-left: 20px;
-  padding: 30px 20px 30px 20px;
+  padding: 20px 10px 20px 20px;
   display: inline-block;
   box-shadow:0 1px 1px rgba(0, 0, 0, 0.12), 0 0px 1px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -308,6 +310,7 @@ pages style
 .userpage {
 /*    overflow: -webkit-paged-y; 
 */    display: inline-block;
+position:relative;
     padding: 30px;
     margin-top: 25px;
     width: 93%;
@@ -457,6 +460,7 @@ input[type="submit"]{
   grid-template-columns: 90px 90px 90px ;
   grid-template-rows: 90px 90px 90px ;
   grid-gap: 0.5em;
+  overflow:scroll;
   /*border: 1px $gray solid;*/
 
 }
@@ -469,6 +473,7 @@ input[type="submit"]{
   display:inline-block;
   background-size: cover;
 }
+
 .profile{
         position: relative;
         width: 100%;
@@ -476,15 +481,12 @@ input[type="submit"]{
         overflow: hidden;
 }
 
-.profile img {
+.profile img {  
+            margin: 10px;
             position: absolute;
-            left: 50%;
-            top: 50%;
-           height: 100%;
-            width: 100%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            max-width: 100%;
+            height: auto;     
+           
 }
 
 #edit_image{
@@ -500,16 +502,15 @@ p.title {
 }
 
 .bio {
+  
   text-align: justify;
   grid-column: 2 / span 3;
-  grid-column-start: 2;
   grid-row-start: 3;
   width: 100%;
   height: 250px;
   overflow: hidden;
 /*  background-color:$grey-prof;*/
 line-height: 22px;
-  padding:10px;
 }
 
 .spoon{
@@ -554,51 +555,44 @@ color:#ff0000;
 }
 
 .reviews {
-  width: 100%;
-  grid-column: 1 / span 3;
-  grid-column-start: 2;
-  grid-row-start: 5 / span 2;
-  grid-row-end: 5;
-  width: 100%;
-  margin-top:120px;
+  position:absolute;
+   margin-right: 50px;
+  margin-top:20px;
+  padding: 0 0 10px 10px;
   //overflow: scroll;
+  font-size: 14px;
 
-  &.review {
-    background-color: white;
-    font-weight: 1000;
-    margin-top: 20px;
-    margin-left: 20px;
-    padding: 30px 20px 30px 20px;
-    display: inline-block;
-    box-shadow: none;
-    transition: none;
-  }
 
 }
 .review_pic{
-  height:50%;
+  height:100%;
   widgth:50%;
+  float:right;
 }
 .created_at{
   font-size: small;
   font-weight: 100;
 }
-
- .reviews .review .c{
+img{
+  margin-right:20px;
+  margin-left:30px;
+}
+ .reviews .c{
+    width:100%;
     border-bottom: 0.5px solid $gray-button;
     padding: 10px;
-    margin-top:20px;
-    margin-bottom:10px;
-    padding-bottom: 20px;
-    font-size: 24px;
-/*    background-color:$grey-gal;*/
+    margin-right:30%;
+    margin-bottom:30px;
+   
+    font-size: 16px;
+/*  background-color:$grey-gal;*/
   }
 
   .reviews .review .c p{
     font-size: 16px;
     line-height: 22px;
     text-align: justify;
-/*    background-color:$grey-gal;*/
+/*   background-color:$grey-gal;*/
   }
   
  
@@ -622,7 +616,9 @@ color:#ff0000;
 
 
 .rating {
+
   color: $yellow-material;
+  margin-bottom:10px;
 }
 .rating p {
   color: black;
@@ -675,11 +671,10 @@ color:#ff0000;
 
   /*chef list images********************/
   .chef-list-profile img{
-    width: 110px;
-    height: 110px;
-    -moz-box-shadow:    inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
+            position: absolute;
+            max-height: 100%;
+            max-width: 100%;
+            height: auto;     
   }
 
    .chef-list-profile {
@@ -759,7 +754,7 @@ color:#ff0000;
 .search{
   margin: 30px;
   padding-right: 10px;
-  margin-top: 125px;
+  margin-top: 25px;
   grid-row-start: 1;
   float: left;
   width: 100%;
@@ -780,7 +775,7 @@ color:#ff0000;
   /* background-image: linear-gradient(to bottom right,#002f4b,#dc4225); */
   background-image: url(cv5.png);
   background-position: center;
-  height: 670px;
+  height: 570px;
   /*margin-top: 29px;*/
   /* background-size: 300px 100px; */
   -webkit-background-size: cover;
@@ -797,7 +792,7 @@ color:#ff0000;
     padding: 10px;
     background-color: $cream;
     height: 90px;
-    top: 305px;
+    top: 255px;
     /* margin-top: 315px; */
     position: absolute;
     left: 25%;

@@ -9,7 +9,7 @@
       <% if user.is_a_chef %>
           <div class="chef-list">
             <div class="chef-list-profile">
-              <div class="small-avatar" style="background-image: url(<%= user.avatar.file ? user.avatar.url : "no-image.jpg" %>)"></div>
+              <div class="small-avatar" style="background-image: url(<%= user.avatar.url(:thumb)%>)"></div>
 
             </div>
             <div class="list-content">

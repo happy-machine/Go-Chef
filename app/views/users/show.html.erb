@@ -18,10 +18,8 @@
       <% end %>
   </div>
   <div class ="profile">     
-    <% if @user.avatar.file %>
-      <%= image_tag @user.avatar.url%>
-    <% else %>
-      <%= image_tag "no-image.jpg"%>
+    <% if @user.avatar.file? %>
+      <%= image_tag @user.avatar.url(:medium)%>
     <% end %>
   </div>
   <div id="mapid"></div>
@@ -63,13 +61,17 @@
     <button class = "button back">
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
-      <%= simple_format(@user.bio, class: "bio") %>
-      <section class="reviews">
-        <% if @current_user.name != "guest" %>
-        <%= render(:partial => 'reviews/review')%>
-        <% else %>
-        <br>
-        <% end %>
-        <%= render(:partial => 'reviews/show') %>
-      </section>
+      <div class="bio">
+        <%= @user.bio.gsub(/\n/, '<br>') %>
+          <section class="reviews">
+          <div class="review">
+             <% if @current_user.name != "guest" && @user != @current_user %>
+              <%= render(:partial => 'reviews/review')%></br>
+              <% else %>
+              <br>
+              <% end %>
+              <%= render(:partial => 'reviews/show') %>
+              </div>
+              </section>
+      </div>
   </div>

@@ -1,14 +1,11 @@
-      <div class="review">
+
         <% @user.reviews.each do |review| %>
-        <% if review.image.image.file.file %>
-                             <script>console.log('<%= review.image.image.file.file.split('/')[12] %>')</script>
-                            <div class="review_pic"> <%=image_tag @image.find(review.image_id).image.url%> </div>
-                           
-                            <% end %>
-        <div class="c">
-                 
+        <div class="c">    
+         <% if review.avatar.file? %>
+            <div class="review_pic"> <%=image_tag review.avatar.url(:thumb)%> </div>
+            <script><%= review.avatar.url%></script>
+        <% end %>
            <div class="rating">
-   
                 <% 5.times do |i|%>
                    <% if review.rating && i && review.rating > i %>
                      <%= link_to(raw(fa_icon "spoon", class: "fa-1x", class: "spoon"), user_path(@user))%> 
@@ -26,4 +23,4 @@
             </div>
             -->
            <% end %>
-        </div>
+      

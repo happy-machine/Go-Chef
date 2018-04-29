@@ -1,4 +1,4 @@
-    <section class="reviews">
+
       <div class="post_review">
         <%= form_for @review, url: user_reviews_path(@user) do |f| %>
         <div class="field">
@@ -10,7 +10,7 @@
 
           <div id="photo_frame" class="photo_frame"></div>
           <%= f.label "Add a photo" %><br>
-          <%= f.file_field :image %>
+          <%= f.file_field :avatar%>
         </div>
 
 
@@ -32,6 +32,6 @@
       <br>
       <hr>
       <br>
-    </section>
+    
     
 

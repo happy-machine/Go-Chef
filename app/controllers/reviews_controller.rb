@@ -11,18 +11,17 @@ class ReviewsController < ApplicationController
     @user_type = guest_user ? :guest : :registered
     @reviews = Review.where("user_id = #{@user.id}")
     @review = Review.new(:user_id => @user.id)
-    # binding.pry
   end
 
 
   def new
-    @review = Review.new(:user_id => @user.id)
+    @review = Review.new
+    @user=User.find(params[:user_id])
   end
 
   def create
-    p params
     @user = User.find(params[:user_id])
-    @review = @user.reviews.new(review_params)
+    @review = @user.reviews.create!(review_params)
     @review.reviewer_name = current_user.name
     if @review.save
       redirect_to(user_path(@user))
@@ -37,7 +36,7 @@ class ReviewsController < ApplicationController
 
 
     def review_params
-      params.require(:review).permit(:comment, :rating )
+      params.require(:review).permit(:comment, :rating, :avatar, :user_id)
     end
 
 end

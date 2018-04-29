@@ -24,7 +24,7 @@
         </div>
         <br>
         <div class="avatar">
-            <% if @user.avatar.file %>
+            <% if @user.avatar.file? %>
                 <%= image_tag @user.avatar.url, id: "edit_image"%>
             <% end %>
         </div>

@@ -1,11 +1,14 @@
 class User < ApplicationRecord
   
+  has_attached_file :avatar, styles: { medium: "300x300#", thumb: "100x100#", :square => "100x100#"  }, default_url: "no-image.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   acts_as_mappable :default_units => :miles,
   :default_formula => :sphere,
   :distance_field_name => :distance,
   :lat_column_name => :location_lat,
   :lng_column_name => :location_lon
   
+
   enum status: [:rating]
   has_many :reviews, -> { order(created_at: :desc) }
   has_many :ratings
@@ -20,8 +23,8 @@ class User < ApplicationRecord
     self.rating ||= average_rating
   end
   #carrierwave upload mounting
-  mount_uploader :avatar, AvatarUploader
-
+  #mount_uploader :avatar, AvatarUploader
+ 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

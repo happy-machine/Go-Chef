@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def guest_user
+    session[:guest_user_id]=nil
    User.find(session[:guest_user_id].nil? ? session[:guest_user_id] = create_guest_user.id : session[:guest_user_id])
   end
 
@@ -21,6 +22,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location_lat, :location_lon, :range_to, :is_a_chef, :max_party_size, :price_per_head] )
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location_lat, :location_lon, :range_to, :avatar, :is_a_chef, :max_party_size, :price_per_head] )
   end
 end

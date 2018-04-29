@@ -62,8 +62,12 @@
       <%= link_to("Back to the chefs", "/" ) %>
     </button>
       <div class="bio">
+      <% if @user.bio %>
         <%= @user.bio.gsub(/\n/, '<br>') %>
-          <section class="reviews">
+        <% else %>
+        ** This chef hasn't submitted a bio **
+      <% end %>
+      <section class="reviews">
           <div class="review">
              <% if @current_user.name != "guest" && @user != @current_user %>
               <%= render(:partial => 'reviews/review')%></br>

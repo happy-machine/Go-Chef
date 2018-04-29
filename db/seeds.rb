@@ -36,8 +36,8 @@ images = [
 
 reviews = [
    {avatar: Rails.root.join("db/seed_images/food1.jpg").open, user_id: 1, rating: 2, reviewer_name: 'Bob Pickering', comment: 'Amazing staff, very willing to help. Good prices and tasty food as well. I had one of the all day breakfasts but there was a wide range of food available at a low price. Would definitely recommend.'},
-   {avatar: Rails.root.join("db/seed_images/food2.jpg").open, user_id: 1, rating: 4, reviewer_name: 'Emile Burton',comment: 'This guy is a legend, I\'d love to try his food!.'},
-   {avatar: Rails.root.join("db/seed_images/food3.jpg").open, user_id: 2, rating: 5, reviewer_name: 'Bob Pickering', comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
+   {user_id: 1, rating: 4, reviewer_name: 'Emile Burton',comment: 'This guy is a legend, I\'d love to try his food!'},
+   {avatar: Rails.root.join("db/seed_images/food2.jpg").open, user_id: 2, rating: 5, reviewer_name: 'Bob Pickering', comment: 'With food remaining the biggest star of this show, the side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original.'},
    {avatar: Rails.root.join("db/seed_images/food4.jpg").open, user_id: 2, rating: 3, reviewer_name: 'Jimmy Bo', comment: 'If only I didnt have to end this review by talking about how all those ingredients combine to give us a sweet story with a seriously sour aftertaste.'},
    {avatar: Rails.root.join("db/seed_images/food5.jpg").open, user_id: 2, rating: 5, reviewer_name: 'James Fappy', comment: "A really awesome menu, went above and beyond our expectations. Thoroughly recommended and deserving of every penny. A wonderful evening was had by all!"},
    {avatar: Rails.root.join("db/seed_images/food6.jpeg").open, user_id: 3, rating: 1, reviewer_name: 'Mangu', comment: 'The side dishes also include some family-bonding as well. And the result is a serving of something refreshingly original'},

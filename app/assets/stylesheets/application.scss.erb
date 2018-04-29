@@ -452,7 +452,6 @@ input[type="submit"]{
 #chef_gallery{
   margin-top: 25px;
   width: 100%;
-  padding:10px;
   /*background-color: $grey-gal;*/
   grid-column: 1 / span 1;
   grid-column-start: 1;
@@ -468,8 +467,9 @@ input[type="submit"]{
 .photos{
   grid-auto-flow: row;
   grid-auto-flow: column;
-  width:90px;
-  height:90px;
+  min-width: 150px;
+  width:30%;
+  height:30%;
   display:inline-block;
   background-size: cover;
 }
@@ -482,7 +482,7 @@ input[type="submit"]{
 }
 
 .profile img {  
-            margin: 10px;
+            margin: 0px;
             position: absolute;
             max-width: 100%;
             height: auto;     

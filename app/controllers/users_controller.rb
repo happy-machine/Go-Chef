@@ -12,21 +12,20 @@ class UsersController < ApplicationController
     if params.has_key?(:name)
       @users = User.search(session[:postcode]).order("created_at DESC")
     elsif params.has_key?(:location)
-      @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
-    elsif params.has_key?(:rating)
+      begin
+        @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
+      rescue
+        @users = User.all
+        flash[:error] = "** Postcode not valid **"
+        end 
+      elsif params.has_key?(:rating)
       @users = User.all.sort_by(&:average_rating).reverse
     else
-      if session[:postcode].length == 6 || session[:postcode].length == 7
         begin
           @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
-          rescue
-          @users = User.all
-          flash[:error] = "** Postcode not valid **"
-          end
-      else
-        @users = User.search(session[:postcode]).order("created_at DESC")
-      end
-      @users = User.all.order("created_at DESC")
+        rescue
+          @users = User.search(session[:postcode]).order("created_at DESC")
+        end
     end
   ensure
     render 'index'
@@ -35,15 +34,9 @@ class UsersController < ApplicationController
   def postcode_added
     @current_user = current_user
     session[:postcode]=params[:user][:postcode]
-    puts session[:postcode].length
-    if session[:postcode].length == 6 || session[:postcode].length == 7
-      begin
+    begin
       @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
-      rescue
-      @users = User.all
-      flash[:error] = "** Postcode not valid **"
-      end
-    else
+    rescue
       @users = User.search(session[:postcode]).order("created_at DESC")
     end
   ensure

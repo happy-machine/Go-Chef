@@ -249,6 +249,45 @@ list of the chefs
   padding-left: 30px;
 }
 
+#search_box{
+  position:relative;
+  height:100px;
+  width:auto;
+  display:grid;
+  border-style: solid;
+  border-width:1px;
+  color: #cccccc;
+  border-radius:4px;
+  grid-template-columns: 45% 5% 50%;
+  grid-template-rows: 50% 60%;
+  padding-left:10%;
+  padding-top:20px;
+  background-color:white;
+}
+
+.box_text{
+  color:#aaaaaa;
+  font-size: 1.1vw;
+  z-index:10000;
+}
+
+#line{
+pointer-events: none;
+margin-left:10%;
+width:75%;
+height: 50%;
+border-bottom: 1px solid #aaaaaa;
+position: absolute;
+}
+
+#cross_line{
+pointer-events: none;
+top:60px;
+height:150%;
+margin-right:400px;
+border-right: 1px solid #aaaaaa;
+}
+
 .list.home{
   margin-top: 170px;
   float: left;
@@ -583,7 +622,6 @@ img{
     padding: 10px;
     margin-right:30%;
     margin-bottom:30px;
-   
     font-size: 16px;
 /*  background-color:$grey-gal;*/
   }

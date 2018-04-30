@@ -4,8 +4,12 @@
       <%= form_for @current_user, url: welcome_post_path(@current_user), method: 'post'  do |f| %>
 
     <div id="sb-search" class="sb-search">
-      
-      <%= f.text_field :postcode, autofocus: true, autocomplete: "SL44NP", placeholder: "What's your postcode?", :class => "sb-search-input"%>
+      <% if session[:postcode]!=nil%>
+      <% place_val = session[:postcode] %>
+      <% else %>
+       <% place_val = "What's your postcode?" %>
+       <% end %>
+      <%= f.text_field :postcode, autofocus: true, autocomplete: "SL44NP", placeholder: place_val, :class => "sb-search-input"%>
         <%= f.hidden_field :id %>
     </div>
 

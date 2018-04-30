@@ -5,9 +5,9 @@
 
     <div id="sb-search" class="sb-search">
       <% if session[:postcode]!=nil%>
-      <% place_val = session[:postcode] %>
+      <% place_val = 'searching by: ' + session[:postcode] %>
       <% else %>
-       <% place_val = "What's your postcode?" %>
+       <% place_val = "Enter a postcode or a name" %>
        <% end %>
       <%= f.text_field :postcode, autofocus: true, autocomplete: "SL44NP", placeholder: place_val, :class => "sb-search-input"%>
         <%= f.hidden_field :id %>

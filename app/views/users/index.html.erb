@@ -37,10 +37,6 @@
 </div>
 
 <div class ="search">
-        <%= form_tag(users_path, method: :get) do %>
-          <%= text_field_tag :search, params[:search], id:'searchText',placeholder: "Filter by" %>
-          <%= submit_tag 'Location', name: nil, :class => "search_button" %>
-        <% end %>
         <div id="search_box">
         <div id="location" class="box_text">LOCATION</div>
          <div id="cross_line"></div>
@@ -54,9 +50,6 @@
 <script>
 
 $("#location").click(()=>{window.location.replace('/search?location=true')})
-$("#name").click(()=>{
-  console.log($('#searchText').val())
-  window.location.replace('/search?name='+$('#searchText').val())})
+$("#name").click(()=>{window.location.replace('/search?name=true')})
 $("#rating").click(()=>{window.location.replace('/search?rating=true')})
-$(".search_button").hide()
 </script>

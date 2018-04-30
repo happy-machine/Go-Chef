@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       @users = User.search(session[:postcode]).order("created_at DESC")
     elsif params.has_key?(:location)
       @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
+    elsif params.has_key?(:all)
+      @users = User.all
     elsif params.has_key?(:rating)
       @users = User.all.sort_by(&:average_rating).reverse
     else

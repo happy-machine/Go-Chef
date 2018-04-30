@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
     @review = Review.new(:user_id => @user.id)
   end
 
-
   def new
     @review = Review.new
     @user=User.find(params[:user_id])
@@ -31,9 +30,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-
   private
-
 
     def review_params
       params.require(:review).permit(:comment, :rating, :avatar, :user_id)

@@ -1,32 +1,28 @@
 
       <div class="post_review">
         <%= form_for @review, url: user_reviews_path(@user) do |f| %>
-        <div class="field">
-          <%= f.label "Leave a review." %>
-          <br />
-          <%= f.text_area :comment, autofocus: false, autocomplete: "review" %>
-         
-        </div>
-
-          <div id="photo_frame" class="photo_frame"></div>
+          <div class="field">
+            <%= f.label "Leave a review." %>
+            <br />
+            <%= f.text_area :comment, autofocus: false, autocomplete: "review" %>
+          </div>
           <%= f.label "Add a photo" %><br>
           <%= f.file_field :avatar%>
-        </div>
 
 
-        <table class ="rating_input">
-            <tr>
-              <td><%= f.radio_button :rating, 1 %> <%= f.label "1" %></td>
-              <td><%= f.radio_button :rating, 2 %> <%= f.label "2" %></td>
-              <td><%= f.radio_button :rating, 3 %> <%= f.label "3" %></td>
-              <td><%= f.radio_button :rating, 4 %> <%= f.label "4" %></td>
-              <td><%= f.radio_button :rating, 5 %> <%= f.label "5" %></td>
-            </tr>
-        </table> 
+          <table class ="rating_input">
+              <tr>
+                <td><%= f.radio_button :rating, 1 %> <%= f.label "1" %></td>
+                <td><%= f.radio_button :rating, 2 %> <%= f.label "2" %></td>
+                <td><%= f.radio_button :rating, 3 %> <%= f.label "3" %></td>
+                <td><%= f.radio_button :rating, 4 %> <%= f.label "4" %></td>
+                <td><%= f.radio_button :rating, 5 %> <%= f.label "5" %></td>
+              </tr>
+          </table> 
        
-        <div class="actions">
-        <%= f.submit "post" %>
-        </div>
+          <div class="actions">
+            <%= f.submit "Post" %>
+          </div>
         <% end %>
       </div>
       <br>

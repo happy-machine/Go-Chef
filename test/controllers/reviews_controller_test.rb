@@ -8,12 +8,13 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     get '/users', params:{id:users(:one).id.to_s}
     assert_response :success
   end
-=begin
+
   test "should get show" do
     get reviews_show_url
     assert_response :success
+    assert_match users(:one).id, @response.body
   end
-
+=begin
   test "should get new" do
     get reviews_new_url
     assert_response :success

@@ -35,13 +35,11 @@ ActiveRecord::Schema.define(version: 20180430005718) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "image_id"
     t.string "reviewer_name"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.index ["image_id"], name: "index_reviews_on_image_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -68,7 +66,6 @@ ActiveRecord::Schema.define(version: 20180430005718) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string "avatar"
     t.integer "range_to"
     t.integer "rating"
     t.boolean "is_chef?"
@@ -80,6 +77,5 @@ ActiveRecord::Schema.define(version: 20180430005718) do
   end
 
   add_foreign_key "ratings", "users"
-  add_foreign_key "reviews", "images"
   add_foreign_key "reviews", "users"
 end

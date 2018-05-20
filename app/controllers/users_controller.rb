@@ -16,15 +16,18 @@ class UsersController < ApplicationController
     elsif params.has_key?(:all)
       @users = User.all
     elsif params.has_key?(:rating)
-      @users = User.all.sort_by(&:average_rating).reverse
+      puts "rating"
+      @users = User.all.sort_by(&:av_rating).reverse
+      p @users
     else
+      puts "else"
       if session[:postcode].length == 6 || session[:postcode].length == 7
         begin
           @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
-          rescue
+        rescue
           @users = User.all
           flash[:error] = "** Postcode not valid **"
-          end
+        end
       else
         @users = User.search(session[:postcode]).order("created_at DESC")
       end

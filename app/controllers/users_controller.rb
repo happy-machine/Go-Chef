@@ -9,32 +9,34 @@ class UsersController < ApplicationController
 
   def search
     @current_user=current_user
-    if params.has_key?(:name)
-      @users = User.search(session[:postcode]).order("created_at DESC")
-    elsif params.has_key?(:location)
-      @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
-    elsif params.has_key?(:all)
-      @users = User.all
-    elsif params.has_key?(:rating)
-      puts "rating"
-      @users = User.all.sort_by(&:av_rating).reverse
-      p @users
-    else
-      puts "else"
-      if session[:postcode].length == 6 || session[:postcode].length == 7
-        begin
-          @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
-        rescue
-          @users = User.all
-          flash[:error] = "** Postcode not valid **"
-        end
-      else
+    begin
+      if params.has_key?(:name)
         @users = User.search(session[:postcode]).order("created_at DESC")
+      elsif params.has_key?(:location)
+        @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
+      elsif params.has_key?(:all)
+        @users = User.all
+      elsif params.has_key?(:rating)
+        @users = User.all.sort_by(&:av_rating).reverse
+      else
+        if session[:postcode].length == 6 || session[:postcode].length == 7
+          begin
+            @users = User.by_distance(:origin => session[:postcode]).within(current_user.range_to , :origin => session[:postcode])
+          rescue
+            @users = User.all
+            flash[:error] = "** Postcode not valid **"
+          end
+        else
+          @users = User.search(session[:postcode]).order("created_at DESC")
+        end
+        @users = User.all.order("created_at DESC")
       end
-      @users = User.all.order("created_at DESC")
+    rescue
+      @users = User.all
+      flash[:error] = "** Bad Search Parameters **"
     end
-  ensure
-    render 'index'
+    ensure
+      render 'index'
   end
 
   def postcode_added

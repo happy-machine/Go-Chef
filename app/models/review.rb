@@ -5,6 +5,7 @@ class Review < ApplicationRecord
   belongs_to :user
 
   after_initialize :init
+  validates :comment, presence: true
 
   def init
     self.rating  ||= 1   

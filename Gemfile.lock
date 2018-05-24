@@ -68,8 +68,15 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.3)
+    docile (1.3.0)
     erubi (1.7.1)
     execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
     ffi (1.9.23)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
@@ -84,6 +91,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -151,6 +159,23 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-rails (3.7.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -167,6 +192,13 @@ GEM
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -212,6 +244,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   carrierwave
   devise
+  factory_bot_rails
   font-awesome-rails
   geokit-rails
   jbuilder (~> 2.5)
@@ -221,8 +254,11 @@ DEPENDENCIES
   pry
   puma (~> 3.7)
   rails (~> 5.1.5)
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

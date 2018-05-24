@@ -8,6 +8,8 @@ class User < ApplicationRecord
   :lat_column_name => :location_lat,
   :lng_column_name => :location_lon
   
+  validates :name, presence: true
+  validates :email, presence: true
 
   enum status: [:rating]
   has_many :reviews, -> { order(created_at: :desc) }
@@ -32,8 +34,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def av_rating
-    if reviews.count > 0 && (reviews.map(&:rating).compact.sum)/(reviews.map(&:rating).compact.count).round >= 1
-        return (reviews.map(&:rating).compact.sum)/(reviews.map(&:rating).compact.count).round
+    if reviews.count > 0 && ((reviews.map(&:rating).compact.sum.to_f)/(reviews.map(&:rating).compact.count)).round >= 1
+        return ((reviews.map(&:rating).compact.sum.to_f)/(reviews.map(&:rating).compact.count)).round
     else 1
     end
   end
@@ -45,4 +47,6 @@ class User < ApplicationRecord
       all
     end
   end
+
+  
 end

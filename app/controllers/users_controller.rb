@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
+    #binding.pry
     @current_user = current_user
     @user = User.find(params[:id])
     if @user == current_user || session[:test_mode]==true

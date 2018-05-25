@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.10.2/application.js' type='text/javascript'></script>    
     <link href='./assets/0.10.2/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_yellow.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_green.png" />
     <link rel="icon" type="image/png" href="./assets/0.10.2/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-05-25T22:12:02+01:00">2018-05-25T22:12:02+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-05-25T22:25:27+01:00">2018-05-25T22:25:27+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">86.4%</span></span>
+    (<span class="covered_percent"><span class="green">96.09%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.49
+         18.73
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>13</b> files in total.
-    <b>125</b> relevant lines. 
-    <span class="green"><b>108</b> lines covered</span> and
-    <span class="red"><b>17</b> lines missed </span>
+    <b>14</b> files in total.
+    <b>128</b> relevant lines. 
+    <span class="green"><b>123</b> lines covered</span> and
+    <span class="red"><b>5</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,22 +52,32 @@
       
       <tr>
         <td class="strong"><a href="#5a2373476ea291b1ee4c5be07bdcb1ea5aa5602f" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="green strong">93.75 %</td>
+        <td class="green strong">100.0 %</td>
         <td>27</td>
         <td>16</td>
-        <td>15</td>
+        <td>16</td>
+        <td>0</td>
+        <td>15.8</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#f0a205bcf0813e38863a59d4812956bb6ba397b4" class="src_link" title="app/controllers/users/sessions_controller.rb">app/controllers/users/sessions_controller.rb</a></td>
+        <td class="red strong">75.0 %</td>
+        <td>31</td>
+        <td>4</td>
+        <td>3</td>
         <td>1</td>
-        <td>3.8</td>
+        <td>0.8</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#f2c086af684e0f36ed8424652a40206581d98b9f" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">79.31 %</td>
+        <td class="green strong">96.49 %</td>
         <td>92</td>
-        <td>58</td>
-        <td>46</td>
-        <td>12</td>
-        <td>1.1</td>
+        <td>57</td>
+        <td>55</td>
+        <td>2</td>
+        <td>2.9</td>
       </tr>
       
       <tr>
@@ -157,17 +167,17 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>3.9</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#06dcdf8424b2bde1cb5c00be3d65b58b4a6e25c1" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="green strong">92.31 %</td>
+        <td class="green strong">100.0 %</td>
         <td>52</td>
         <td>26</td>
-        <td>24</td>
-        <td>2</td>
-        <td>11.1</td>
+        <td>26</td>
+        <td>0</td>
+        <td>74.2</td>
       </tr>
       
       <tr>
@@ -199,11 +209,11 @@
         <div class="source_table" id="5a2373476ea291b1ee4c5be07bdcb1ea5aa5602f">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
-    <h4><span class="green">93.75 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>16</b> relevant lines. 
-      <span class="green"><b>15</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -222,8 +232,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="3">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="87" data-linenumber="3">
+          <span class="hits">87</span>
           
           <code class="ruby">    super || guest_user</code>
         </li>
@@ -258,14 +268,14 @@
           <code class="ruby">  def guest_user</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="9">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="31" data-linenumber="9">
+          <span class="hits">31</span>
           
           <code class="ruby">    session[:guest_user_id]=nil</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="10">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="31" data-linenumber="10">
+          <span class="hits">31</span>
           
           <code class="ruby">   User.find(session[:guest_user_id].nil? ? session[:guest_user_id] = create_guest_user.id : session[:guest_user_id])</code>
         </li>
@@ -288,20 +298,20 @@
           <code class="ruby">  def create_guest_user</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="14">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="31" data-linenumber="14">
+          <span class="hits">31</span>
           
           <code class="ruby">    u = User.create(:name =&gt; &quot;guest&quot;, :email =&gt; &quot;guest_#{Time.now.to_i}#{rand(99)}@example.com&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="15">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="31" data-linenumber="15">
+          <span class="hits">31</span>
           
           <code class="ruby">    u.save(:validate =&gt; false)</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="16">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="31" data-linenumber="16">
+          <span class="hits">31</span>
           
           <code class="ruby">    u</code>
         </li>
@@ -354,8 +364,8 @@
           <code class="ruby">  def configure_permitted_parameters</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="2" data-linenumber="25">
+          <span class="hits">2</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location_lat, :location_lon, :range_to, :avatar, :is_a_chef, :max_party_size, :price_per_head] )</code>
         </li>
@@ -377,14 +387,219 @@
 </div>
 
       
+        <div class="source_table" id="f0a205bcf0813e38863a59d4812956bb6ba397b4">
+  <div class="header">
+    <h3>app/controllers/users/sessions_controller.rb</h3>
+    <h4><span class="red">75.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="never" data-hits="" data-linenumber="1">
+          
+          
+          <code class="ruby"># frozen_string_literal: true</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Users::SessionsController &lt; Devise::SessionsController</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  # before_action :configure_sign_in_params, only: [:create]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  # GET /resource/sign_in</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">  # def new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  #   super</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">  #POST /resource/sign_in</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  #def create</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">      #redirect_to &#39;/index&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">   </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  #end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  # DELETE /resource/sign_out</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  # def destroy</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  #   super</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  protected</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  # If you have extra params to permit, append them to the sanitizer.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">def configure_sign_in_params</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">    devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute, :user, :email, :params, :avatar])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
         <div class="source_table" id="f2c086af684e0f36ed8424652a40206581d98b9f">
   <div class="header">
     <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">79.31 %</span> covered</h4>
+    <h4><span class="green">96.49 %</span> covered</h4>
     <div>
-      <b>58</b> relevant lines. 
-      <span class="green"><b>46</b> lines covered</span> and
-      <span class="red"><b>12</b> lines missed.</span>
+      <b>57</b> relevant lines. 
+      <span class="green"><b>55</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -421,14 +636,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="11" data-linenumber="6">
+          <span class="hits">11</span>
           
           <code class="ruby">    @current_user=current_user</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="11" data-linenumber="7">
+          <span class="hits">11</span>
           
           <code class="ruby">      @users= User.all</code>
         </li>
@@ -451,20 +666,20 @@
           <code class="ruby">  def search</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="11">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="11">
+          <span class="hits">7</span>
           
           <code class="ruby">    @current_user=current_user</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="12">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="12">
+          <span class="hits">7</span>
           
           <code class="ruby">    begin</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="13">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="13">
+          <span class="hits">7</span>
           
           <code class="ruby">      if params.has_key?(:name)</code>
         </li>
@@ -475,20 +690,20 @@
           <code class="ruby">        @users = User.search(session[:postcode]).order(&quot;created_at DESC&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="15">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="15">
+          <span class="hits">6</span>
           
           <code class="ruby">      elsif params.has_key?(:location) &amp;&amp; valid_postcode(session[:postcode])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">        @users = User.by_distance(:origin =&gt; session[:postcode]).within(current_user.range_to , :origin =&gt; session[:postcode])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
           
           <code class="ruby">      elsif params.has_key?(:all)</code>
         </li>
@@ -499,8 +714,8 @@
           <code class="ruby">        @users = User.all</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
           
           <code class="ruby">      elsif params.has_key?(:rating)</code>
         </li>
@@ -517,14 +732,14 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
           
           <code class="ruby">        flash[:alert] = &quot;** Postcode not valid **&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
-          
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
           
           <code class="ruby">        @users=User.all</code>
         </li>
@@ -565,8 +780,8 @@
           <code class="ruby">    ensure</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="30">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="30">
+          <span class="hits">7</span>
           
           <code class="ruby">      render &#39;index&#39;</code>
         </li>
@@ -589,32 +804,32 @@
           <code class="ruby">  def postcode_added</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
-          
+        <li class="covered" data-hits="9" data-linenumber="34">
+          <span class="hits">9</span>
           
           <code class="ruby">    @current_user = current_user</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="35">
-          
+        <li class="covered" data-hits="9" data-linenumber="35">
+          <span class="hits">9</span>
           
           <code class="ruby">    session[:postcode]=params[:user][:postcode]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
-          
+        <li class="covered" data-hits="9" data-linenumber="36">
+          <span class="hits">9</span>
           
           <code class="ruby">    if valid_postcode(session[:postcode])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="37">
-          
+        <li class="covered" data-hits="6" data-linenumber="37">
+          <span class="hits">6</span>
           
           <code class="ruby">      begin</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
+        <li class="covered" data-hits="6" data-linenumber="38">
+          <span class="hits">6</span>
           
           <code class="ruby">      @users = User.by_distance(:origin =&gt; session[:postcode]).within(current_user.range_to , :origin =&gt; session[:postcode])</code>
         </li>
@@ -649,8 +864,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
+        <li class="covered" data-hits="3" data-linenumber="44">
+          <span class="hits">3</span>
           
           <code class="ruby">      @users = User.search(session[:postcode]).order(&quot;created_at DESC&quot;)</code>
         </li>
@@ -667,8 +882,8 @@
           <code class="ruby">  ensure</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
+        <li class="covered" data-hits="9" data-linenumber="47">
+          <span class="hits">9</span>
           
           <code class="ruby">    render &#39;index&#39;</code>
         </li>
@@ -769,10 +984,10 @@
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="64">
           
-          <code class="ruby">    binding.pry</code>
+          
+          <code class="ruby">    #binding.pry</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="65">
@@ -883,8 +1098,8 @@
           <code class="ruby">  def valid_postcode (postcode)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="83">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="13" data-linenumber="83">
+          <span class="hits">13</span>
           
           <code class="ruby">    postcode.match(/\b((?:(?:gir)|(?:[a-pr-uwyz])(?:(?:[0-9](?:[a-hjkpstuw]|[0-9])?)|(?:[a-hk-y][0-9](?:[0-9]|[abehmnprv-y])?)))) ?([0-9][abd-hjlnp-uw-z]{2})\b/)? true : false</code>
         </li>
@@ -1312,8 +1527,8 @@
           <code class="ruby">  def init</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="24" data-linenumber="11">
+          <span class="hits">24</span>
           
           <code class="ruby">    self.rating  ||= 1   </code>
         </li>
@@ -1338,11 +1553,11 @@
         <div class="source_table" id="06dcdf8424b2bde1cb5c00be3d65b58b4a6e25c1">
   <div class="header">
     <h3>app/models/user.rb</h3>
-    <h4><span class="green">92.31 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>26</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -1433,8 +1648,8 @@
           <code class="ruby">  enum status: [:rating]</code>
         </li>
       
-        <li class="covered" data-hits="47" data-linenumber="15">
-          <span class="hits">47</span>
+        <li class="covered" data-hits="232" data-linenumber="15">
+          <span class="hits">232</span>
           
           <code class="ruby">  has_many :reviews, -&gt; { order(created_at: :desc) }</code>
         </li>
@@ -1475,32 +1690,32 @@
           <code class="ruby">  def init</code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="22">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="169" data-linenumber="22">
+          <span class="hits">169</span>
           
           <code class="ruby">    self.location_lat  ||= -0.09039        </code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="23">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="169" data-linenumber="23">
+          <span class="hits">169</span>
           
           <code class="ruby">    self.location_lon ||= 51.51264     </code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="24">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="169" data-linenumber="24">
+          <span class="hits">169</span>
           
           <code class="ruby">    self.range_to ||= 40 </code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="25">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="169" data-linenumber="25">
+          <span class="hits">169</span>
           
           <code class="ruby">    self.rating ||= 1</code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="26">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="169" data-linenumber="26">
+          <span class="hits">169</span>
           
           <code class="ruby">    self.average_rating ||= av_rating</code>
         </li>
@@ -1565,20 +1780,20 @@
           <code class="ruby">  def av_rating</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="37">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="413" data-linenumber="37">
+          <span class="hits">413</span>
           
           <code class="ruby">    if reviews.count &gt; 0 &amp;&amp; ((reviews.map(&amp;:rating).compact.sum.to_f)/(reviews.map(&amp;:rating).compact.count)).round &gt;= 1</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
+        <li class="covered" data-hits="3" data-linenumber="38">
+          <span class="hits">3</span>
           
           <code class="ruby">        return ((reviews.map(&amp;:rating).compact.sum.to_f)/(reviews.map(&amp;:rating).compact.count)).round</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="39">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="410" data-linenumber="39">
+          <span class="hits">410</span>
           
           <code class="ruby">    else 1</code>
         </li>
@@ -1607,14 +1822,14 @@
           <code class="ruby">  def self.search(term)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="6" data-linenumber="44">
+          <span class="hits">6</span>
           
           <code class="ruby">    if term</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
+        <li class="covered" data-hits="4" data-linenumber="45">
+          <span class="hits">4</span>
           
           <code class="ruby">      where(&#39;name ILIKE ?&#39;, &quot;%#{term}%&quot;)</code>
         </li>
@@ -1625,8 +1840,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="47">
+          <span class="hits">2</span>
           
           <code class="ruby">      all</code>
         </li>

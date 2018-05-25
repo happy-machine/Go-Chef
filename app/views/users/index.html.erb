@@ -1,4 +1,6 @@
 <div class="cover">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
   <%= render(:partial => 'users/welcome') %>
 </div>
 
@@ -7,7 +9,7 @@
 <div class="list">
     <% @users.each do |user| %>
       <% if user.is_a_chef %>
-          <div class="chef-list">
+          <div class="chef-list" id="chef-<%= user.id %>"">
             <div class="chef-list-profile">
               <div class="small-avatar" style="background-image: url(<%= user.avatar.url(:thumb)%>)"></div>
 

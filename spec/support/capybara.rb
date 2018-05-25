@@ -14,7 +14,7 @@ Capybara.register_driver :selenium_chrome_headless do |app|
     browser: :chrome,
     desired_capabilities: {
       "chromeOptions" => {
-        "args" => %w{ window-size=1024,768 }
+        "args" => %w{ window-size=1920,1200 }
       }
     }
   )

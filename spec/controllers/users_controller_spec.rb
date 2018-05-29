@@ -21,9 +21,22 @@ RSpec.describe UsersController, type: :controller do
   end
 
   let(:valid_attributes) {
-    {id: valid_user.id, email: 'ainsleyharriet@gmail.com',max_party_size: 20, price_per_head: 800, location_lat: 51.8745476,location_lon: -1.5338750, bio: 'Presenter for many BBC cooking shows.\n Ainsley Harriott (born 28 February 1957) is an English chef, television presenter, and entertainer. He is known for his BBC cooking shows Cant Cook, Wont Cook and Ready Steady Cook. '}
+    {postcode: 'ox331pu', email: 'ainsleyharriet@gmail.com',max_party_size: 20, is_a_chef:true, is_chef?: true, price_per_head: 800, location_lat: 51.8745476,location_lon: -1.5338750, bio: 'Presenter for many BBC cooking shows.\n Ainsley Harriott (born 28 February 1957) is an English chef, television presenter, and entertainer. He is known for his BBC cooking shows Cant Cook, Wont Cook and Ready Steady Cook. '}
   }
 
+  params = {
+               user:{
+                 name: 'John',
+                 bio: 'test bio',
+                 location_lat: 0.5555,
+                 location_lon: 0.5555,
+                 price_per_head: 2000,
+                 is_a_chef: true,
+                 email: 'johndoe@example.com',
+                 password: 'password'
+               }
+            
+             }
   let(:invalid_attributes) {
     {content: "", user:"", room:""}
   }
@@ -83,6 +96,7 @@ RSpec.describe UsersController, type: :controller do
       end
   end
 
+=begin
   describe "PUT #users" do
       it "should allow me to update a chefs page" do
         sign_in valid_user
@@ -92,12 +106,11 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-    context "with invalid params" do
-      it "should show not allow me to edit a chefs page" do
-        put :update, params: {id: valid_user.id, illegal_param: 'test'}
-        expect(response).not_to be_success
-      end
+    it do
+      should permit(:email, :bio, :avatar, :user_id, :id, :range_to, :location_lat, :location_lon, :search, :is_a_chef, :is_chef?, :max_party_size, :price_per_head, :postcode, :format).
+        for(:update, params: params)
     end
+=end
   end
       
 

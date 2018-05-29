@@ -67,13 +67,22 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-
-
-end
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :active_record
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      # Choose a test framework:
+      with.test_framework :rspec
+      with.test_framework :minitest
+      with.test_framework :minitest_4
+  
+      # Choose a library:
+      with.library :active_record
+      with.library :active_model
+      with.library :action_controller
+      # Or, choose all of the above:
+      with.library :rails
+    end
   end
+
+
+  
 end

@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.4.0
 before_script:
-  - psql -c "CREATE USER gochef WITH PASSWORD '123';" -U postgres
+  - psql -c "CREATE USER gochef-test WITH PASSWORD '123';" -U postgres

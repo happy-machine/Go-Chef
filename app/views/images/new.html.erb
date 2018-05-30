@@ -18,7 +18,7 @@
     <div id="gallery">
       <% @user.images.each_with_index do |i,l| %>
         <div class="pic_frame" style="background-image: url(<%= i.image.url %>">
-         <div class="picture_button" ><%=fa_icon "times-square",class: "fa-1x",id: i.id%></div>
+         <div class="picture_button" ><%=fa_icon "times-square",class: "fa-1x",id: i.id %></div>
         </div>
       <% end %>         
     </div>
@@ -37,7 +37,7 @@
 $('.fa-1x').click(function(){
   if (confirm('are you sure you want to delete this image?')){
     $.ajax({
-        url: '/rooms/<%=@room.id%>/messages/'+this.id,
+        url: '/users/<%=current_user.id%>/images/'+this.id,
         type: 'DELETE',
         success: function(result) {
         }

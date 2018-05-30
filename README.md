@@ -4,11 +4,11 @@
 ![Screnshot](https://i.imgur.com/j4GLBsd.jpg)
 
 Go Chef is a rails app which uses Google's api to locate a chef near you. 
-A Chef can add his location either by postcode or by clicking on a map or geo location icon. He can then set a call out radius outside of which he will not be returned in a search.
+A chef can add his location either by Postcode or by clicking on a map or geo location icon. He can then set a call out radius outside of which he will not be returned in a search.
 
 ## Reviews and gallery
 
-A Chef can curate his own gallery, and other users can leave reviews and pictures for each chef.
+A chef can curate his own gallery, and other users can leave reviews and pictures for each chef.
 
  - Rails 5 
  - Erb views
@@ -19,7 +19,7 @@ A Chef can curate his own gallery, and other users can leave reviews and picture
  -  Travis CI
  
 
-Go Chef was made by myself as Team leader, [Ahmad](https://github.com/amdkfe)  and Izzy using agile practices via Pivotal tracker and GitHub.
+Go Chef was made with myself in the role of team leader, [Ahmad](https://github.com/amdkfe)  and Izzy using agile practices via Pivotal Tracker and GitHub.
 
 You can visit a deployed version on Heroku [here](https://go-chef-demo.herokuapp.com/)
 

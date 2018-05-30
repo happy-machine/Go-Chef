@@ -77,7 +77,14 @@ h1{
 .alert{
   color:red;
   text-align:center;
+   animation: fadeout 4s;
 }
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0.1; }
+}
+
 strong{
  font-weight:600 ;
 }

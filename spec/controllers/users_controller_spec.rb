@@ -25,18 +25,18 @@ RSpec.describe UsersController, type: :controller do
   }
 
   params = {
-               user:{
-                 name: 'John',
-                 bio: 'test bio',
-                 location_lat: 0.5555,
-                 location_lon: 0.5555,
-                 price_per_head: 2000,
-                 is_a_chef: true,
-                 email: 'johndoe@example.com',
-                 password: 'password'
-               }
-            
-             }
+    user: {
+      name: 'John',
+      bio: 'test bio',
+      location_lat: 0.5555,
+      location_lon: 0.5555,
+      price_per_head: 2000,
+      is_a_chef: true,
+      email: 'johndoe@example.com',
+      password: 'password'
+    }
+  }
+
   let(:invalid_attributes) {
     {content: "", user:"", room:""}
   }
@@ -112,6 +112,7 @@ RSpec.describe UsersController, type: :controller do
     end
 =end
   end
+
       
 
   

@@ -1,5 +1,5 @@
 require "rails_helper"
-
+=begin
 RSpec.describe "Search_system", :type => :system do
   let(:valid_user){
     create(:user)
@@ -94,3 +94,4 @@ RSpec.describe "Search_system", :type => :system do
     take_screenshot
   end
 end
+=end

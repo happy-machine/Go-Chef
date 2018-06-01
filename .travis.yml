@@ -3,4 +3,4 @@ rvm:
   - 2.4.0
 before_script:
   - psql -c "CREATE USER gochef WITH PASSWORD '123';" -U postgres
-  - rake db:setup
+  - bundle exec rake db:setup

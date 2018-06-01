@@ -3,7 +3,5 @@ rvm:
   - 2.4.0
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python2.7.12/bin/
-  - export CHROME_BIN=chromium-browser
+  - gem install selenium-webdriver
 

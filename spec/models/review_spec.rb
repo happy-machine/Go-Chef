@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Review, type: :model do
   before do
-    @user = User.create!(name:'test', email:'test@aol.com', password: 'blahblah')
+    @user = User.create!(name:'test', email:'tes@aol.com', password: 'blahblah')
     @review = @user.reviews.create!(comment:'ho',user_id:1)
   end
 

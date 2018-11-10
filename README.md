@@ -21,8 +21,6 @@ A chef can curate his own gallery, and other users can leave reviews and picture
 
 Go Chef was made with myself in the role of team leader, [Ahmad](https://github.com/amdkfe)  and Izzy using agile practices via Pivotal Tracker and GitHub.
 
-You can visit a deployed version on Heroku [here](https://go-chef-demo.herokuapp.com/)
-
 ![Screenshot](https://i.imgur.com/aMYFNYe.jpg)
 
 

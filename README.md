@@ -17,9 +17,7 @@ A chef can curate his own gallery, and other users can leave reviews and picture
  - R Spec
  - Capybara
  -  Travis CI
- 
 
-Go Chef was made with myself in the role of team leader, [Ahmad](https://github.com/amdkfe)  and Izzy using agile practices via Pivotal Tracker and GitHub.
 
 ![Screenshot](https://i.imgur.com/aMYFNYe.jpg)
 
